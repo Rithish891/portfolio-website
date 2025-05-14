@@ -300,18 +300,11 @@
     </a>
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-    <button
-      id="theme-toggle"
-      class="fixed top-4 right-16 z-50 p-2 rounded-full glass hover-glow hover-scale"
-    >
-      <i class="fas fa-moon dark:hidden"></i>
-      <i class="fas fa-sun hidden dark:block"></i>
-    </button>
 
     <nav class="fixed top-0 left-0 right-0 z-40 glass py-4">
       <div class="container mx-auto px-6 flex justify-between items-center">
         <a href="#" class="text-2xl font-bold gradient-text hover-tilt">_.RJ</a>
-        <div class="hidden md:flex space-x-8">
+        <div class="hidden md:flex space-x-8 items-center">
           <a
             href="#home"
             class="nav-link hover:text-primary-500 transition-colors"
@@ -347,10 +340,26 @@
             class="nav-link hover:text-primary-500 transition-colors"
             >Contact</a
           >
+          <button
+            id="theme-toggle-desktop"
+            class="p-2 rounded-full glass hover-glow hover-scale"
+          >
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+          </button>
         </div>
-        <button class="md:hidden text-xl" id="mobile-menu-button">
-          <i class="fas fa-bars"></i>
-        </button>
+        <div class="flex justify-end items-center space-x-4">
+          <button class="md:hidden text-xl" id="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+          </button>
+          <button
+            id="theme-toggle-mobile"
+            class="md:hidden p-2 rounded-full glass hover-glow hover-scale"
+          >
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -358,9 +367,6 @@
       id="mobile-menu"
       class="fixed inset-0 z-30 bg-black bg-opacity-90 hidden flex-col items-center justify-center space-y-8"
     >
-      <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">
-        <i class="fas fa-times"></i>
-      </button>
       <a
         href="#home"
         class="text-2xl nav-link hover:text-primary-500 transition-colors"
@@ -1293,7 +1299,6 @@
     </footer>
 
     <script>
-      // Typewriter Effect
       document.addEventListener("DOMContentLoaded", () => {
         const textArray = [
           "Rithish Jakkireddy",
@@ -1335,32 +1340,40 @@
         typeEffect();
       });
 
-      // Theme Toggle
-      const themeToggle = document.getElementById("theme-toggle");
-      themeToggle.addEventListener("click", () => {
+      function toggleTheme() {
         document.documentElement.classList.toggle("dark");
         localStorage.setItem(
           "theme",
           document.documentElement.classList.contains("dark") ? "dark" : "light"
         );
-      });
+      }
 
-      // Mobile Menu Toggle
+      document
+        .getElementById("theme-toggle-desktop")
+        ?.addEventListener("click", toggleTheme);
+      document
+        .getElementById("theme-toggle-mobile")
+        ?.addEventListener("click", toggleTheme);
+
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
-      const closeMobileMenu = document.getElementById("close-mobile-menu");
 
       mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.remove("hidden");
-        mobileMenu.classList.add("flex");
+        if (mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.remove("hidden");
+          mobileMenu.classList.add("flex");
+        } else {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+        }
       });
 
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        mobileMenu.classList.remove("flex");
-      });
-
-      // Custom Cursor
       const cursor = document.querySelector(".cursor");
       const cursorFollower = document.querySelector(".cursor-follower");
 
@@ -1382,7 +1395,6 @@
         cursor.classList.remove("cursor-click");
       });
 
-      // Add cursor hover effect to elements
       const hoverElements = document.querySelectorAll(
         "a, button, .hover-scale, .hover-glow, .hover-tilt, .skill-icon, .project-card, .experience-card, .education-card"
       );
@@ -1399,7 +1411,6 @@
         });
       });
 
-      // Scroll animations
       const observerOptions = {
         threshold: 0.1,
       };
@@ -1420,7 +1431,6 @@
         }
       });
 
-      // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -1434,7 +1444,6 @@
               behavior: "smooth",
             });
 
-            // Close mobile menu if open
             if (!mobileMenu.classList.contains("hidden")) {
               mobileMenu.classList.add("hidden");
               mobileMenu.classList.remove("flex");
@@ -1443,7 +1452,6 @@
         });
       });
 
-      // Check for saved theme preference
       if (
         localStorage.getItem("theme") === "dark" ||
         (!localStorage.getItem("theme") &&
@@ -1454,7 +1462,6 @@
         document.documentElement.classList.remove("dark");
       }
 
-      // Scroll to Top Button
       const scrollToTopButton = document.getElementById("scroll-to-top");
 
       window.addEventListener("scroll", () => {
