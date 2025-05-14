@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rithish Jakkireddy | Frontend Developer</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f0f9ff",
+                100: "#e0f2fe",
+                200: "#bae6fd",
+                300: "#7dd3fc",
+                400: "#38bdf8",
+                500: "#0ea5e9",
+                600: "#0284c7",
+                700: "#0369a1",
+                800: "#075985",
+                900: "#0c4a6e",
+              },
+              dark: {
+                900: "#0f172a",
+                800: "#1e293b",
+                700: "#334155",
+                600: "#475569",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-reverse": "float-reverse 8s ease-in-out infinite",
+              "spin-slow": "spin 8s linear infinite",
+              typing:
+                "typing 3.5s steps(40, end), blink-caret .75s step-end infinite",
+              "blink-caret": "blink-caret 1s step-end infinite",
+              "fade-in": "fadeIn 1s ease-in-out",
+              tilt: "tilt 10s infinite linear",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              "float-reverse": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(20px)" },
+              },
+              typing: {
+                from: { width: "0" },
+                to: { width: "100%" },
+              },
+              "blink-caret": {
+                "from, to": { "border-color": "transparent" },
+                "50%": { "border-color": "rgb(14, 165, 233)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              tilt: {
+                "0%, 50%, 100%": { transform: "rotate(0deg)" },
+                "25%": { transform: "rotate(2deg)" },
+                "75%": { transform: "rotate(-2deg)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap");
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #0ea5e9, #7dd3fc);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0ea5e9;
+      }
+
+      /* Custom Cursor */
+      .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(14, 165, 233, 0.5);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        mix-blend-mode: difference;
+        z-index: 9999;
+        transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+      }
+      .cursor.cursor-hover {
+        transform: translate(-50%, -50%) scale(2);
+        background: rgba(14, 165, 233, 0.8);
+      }
+      .cursor.cursor-click {
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      .cursor-follower {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(14, 165, 233, 0.2);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9998;
+        transition: transform 0.4s ease, width 0.4s ease, height 0.4s ease;
+      }
+      .cursor-follower.cursor-hover {
+        transform: translate(-50%, -50%) scale(1.5);
+      }
+
+      /* Glassmorphism Effect */
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .dark .glass {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Section Transitions */
+      section {
+        transition: all 0.5s ease;
+      }
+      .section-hidden {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      .section-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Timeline */
+      .timeline-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 32px;
+        height: calc(100% - 32px);
+        width: 2px;
+        background: linear-gradient(to bottom, #0ea5e9, #7dd3fc);
+      }
+
+      /* Floating Elements */
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+      .floating-element:nth-child(2n) {
+        animation-name: float-reverse;
+        animation-duration: 8s;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(to right, #0ea5e9, #7dd3fc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Hover Effects */
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+      }
+      .hover-tilt {
+        transition: transform 0.3s ease;
+      }
+      .hover-tilt:hover {
+        transform: rotate(2deg) scale(1.03);
+      }
+
+      /* Skill Icons */
+      .skill-icon {
+        transition: all 0.3s ease;
+      }
+      .skill-icon:hover {
+        transform: translateY(-5px) scale(1.1);
+        filter: drop-shadow(0 5px 5px rgba(14, 165, 233, 0.3));
+      }
+
+      /* Experience Cards */
+      .experience-card {
+        transition: all 0.3s ease;
+      }
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .dark .experience-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .skill-item:hover .skill-icon {
+        transform: translateY(-5px);
+      }
+
+      .cursor-blink {
+        display: inline-block;
+        width: 1px;
+        background-color: rgb(14, 165, 233);
+        animation: none;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-spin-slow {
+        animation: spin 12s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeInUp 0.8s ease-out both;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans bg-gray-50 text-gray-800 dark:bg-dark-900 dark:text-gray-200 transition-colors duration-300"
+  >
+    <!-- Scroll to Top Button -->
+    <button
+      id="scroll-to-top"
+      class="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-md bg-white/10 text-white border border-white/30 hover:backdrop-blur-xl hover:bg-white/20 hover:scale-110 transition-all duration-500 ease-in-out shadow-md hover:shadow-2xl"
+      aria-label="Scroll to Top"
+    >
+      <i class="fas fa-chevron-up text-xl"></i>
+    </button>
+
+    <a
+      href="assets/RithishJakkireddy_Resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 left-6 z-50 group"
+      title="Rithish's Resume"
+    >
+      <div class="relative w-24 h-24">
+        <!-- Rotating Text -->
+        <div class="absolute inset-0 animate-spin-slow">
+          <svg viewBox="0 0 100 100" class="w-full h-full">
+            <defs>
+              <path
+                id="circlePath"
+                d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
+              ></path>
+            </defs>
+            <text
+              fill="currentColor"
+              font-size="11.75"
+              class="text-primary-500"
+            >
+              <textPath xlink:href="#circlePath" startOffset="0%">
+                Click to download CV • Click to download CV •
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        <!-- Avatar -->
+        <img
+          src="assets/Avatar.png"
+          alt="Rithish"
+          class="w-16 h-16 object-cover rounded-full absolute top-4 left-4 border-4 border-white shadow-lg"
+        />
+      </div>
+    </a>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Theme Toggle -->
+    <button
+      id="theme-toggle"
+      class="fixed top-4 right-16 z-50 p-2 rounded-full glass hover-glow hover-scale"
+    >
+      <i class="fas fa-moon dark:hidden"></i>
+      <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 glass py-4">
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold gradient-text hover-tilt">_.RJ</a>
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Experience</a
+          >
+          <a
+            href="#education"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="nav-link hover:text-primary-500 transition-colors"
+            >Contact</a
+          >
+        </div>
+        <button class="md:hidden text-xl" id="mobile-menu-button">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-30 bg-black bg-opacity-90 hidden flex-col items-center justify-center space-y-8"
+    >
+      <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+      <a
+        href="#home"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Home</a
+      >
+      <a
+        href="#about"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >About</a
+      >
+      <a
+        href="#projects"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Projects</a
+      >
+      <a
+        href="#skills"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Skills</a
+      >
+      <a
+        href="#experience"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Experience</a
+      >
+      <a
+        href="#education"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Education</a
+      >
+      <a
+        href="#contact"
+        class="text-2xl nav-link hover:text-primary-500 transition-colors"
+        >Contact</a
+      >
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+    >
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-primary-400 opacity-20 blur-3xl animate-pulse"
+        ></div>
+        <div
+          class="absolute top-2/3 right-1/3 w-40 h-40 rounded-full bg-primary-300 opacity-20 blur-3xl animate-pulse animation-delay-2000"
+        ></div>
+        <div
+          class="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-primary-500 opacity-20 blur-3xl animate-pulse animation-delay-4000"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 z-10">
+        <div class="flex flex-col md:flex-row items-center justify-evenly">
+          <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+              <span class="text-4xl md:text-5xl font-semibold mb-6"
+                >Hi, I'm</span
+              ><br />
+              <span class="gradient-text typing-effect">
+                <span class="typed-text"></span
+                ><span class="cursor-blink">|</span>
+              </span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+              Frontend Developer
+            </h2>
+            <p class="text-lg mb-8 max-w-xl opacity-90">
+              Frontend developer with experience in React and TypeScript,
+              focused on creating intuitive, user centric web applications. I
+              deliver clean, maintainable code and continuously enhance the user
+              experience, aiming to add simplicity and value to every
+              interaction
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#projects"
+                class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-medium transition-colors hover-scale"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="px-6 py-3 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white rounded-full font-medium transition-colors hover-scale"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="relative w-64 h-64 md:w-[25rem] md:h-[25rem] mx-auto">
+              <img
+                src="assets/Rithish.jpg"
+                alt="Rithish Jakkireddy"
+                class="w-full h-full object-cover rounded-full border-4 border-primary-500 shadow-xl hover-tilt"
+              />
+              <div
+                class="absolute -bottom-4 -right-4 bg-gradient-to-r from-primary-500 to-primary-300 text-white px-4 py-2 rounded-full font-bold text-sm animate-bounce shadow-lg"
+              >
+                3+ Years Experience
+              </div>
+              <div
+                class="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-white dark:bg-dark-800 flex items-center justify-center shadow-lg"
+              >
+                <i class="fas fa-code text-2xl text-primary-500"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <a href="#about" class="text-primary-500 text-2xl">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden section-hidden">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            About Me
+          </h2>
+          <div class="w-20 h-1 bg-primary-500 mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+            <div class="relative w-64 h-64">
+              <img
+                src="assets/Rithish.jpg"
+                alt="Rithish Jakkireddy"
+                class="w-full h-full object-cover rounded-lg shadow-xl hover-tilt"
+              />
+              <div
+                class="absolute -bottom-4 -right-4 glass p-4 rounded-lg shadow-lg w-3/4"
+              >
+                <h4 class="font-bold text-primary-500">Rithish Jakkireddy</h4>
+                <p class="text-sm">Frontend Developer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-2/3 md:pl-12">
+            <h3 class="text-2xl font-bold mb-6">Who I Am</h3>
+            <p class="mb-6 opacity-90">
+              I'm a frontend developer with over 3 years of experience 👨‍💻
+              crafting modern, responsive web applications. I specialize in
+              React ⚛️, TypeScript, and the latest JavaScript
+              frameworks—building interfaces that are not just functional, but
+              fast ⚡, accessible ♿, and delightful to use ✨.
+            </p>
+            <p class="mb-6 opacity-90">
+              My passion for web development started back in college 🎓, and it
+              has been a creative obsession ever since. I love transforming
+              complex challenges into clean, user-friendly solutions that feel
+              effortless 🧩.
+            </p>
+            <p class="mb-8 opacity-90">
+              Outside of coding, I am either deep into a game 🎮, binge-watching
+              a good series 🎬, or learning something new, whether it's
+              exploring the latest tech trends 📚 or picking up new skills
+              through online courses 🧑‍💻—always exploring, always evolving 🌱.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="glass p-4 rounded-lg text-center hover-glow">
+                <div class="text-primary-500 text-2xl mb-2">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h4 class="font-bold">Clean Code</h4>
+              </div>
+              <div class="glass p-4 rounded-lg text-center hover-glow">
+                <div class="text-primary-500 text-2xl mb-2">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h4 class="font-bold">Responsive</h4>
+              </div>
+              <div class="glass p-4 rounded-lg text-center hover-glow">
+                <div class="text-primary-500 text-2xl mb-2">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <h4 class="font-bold">Fast</h4>
+              </div>
+              <div class="glass p-4 rounded-lg text-center hover-glow">
+                <div class="text-primary-500 text-2xl mb-2">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <h4 class="font-bold">Intuitive</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-20 bg-gray-100 dark:bg-dark-800 relative overflow-hidden section-hidden"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            My Projects
+          </h2>
+          <div class="w-20 h-1 bg-primary-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
+          >
+            <div class="project-card-inner">
+              <div class="relative h-60 overflow-hidden">
+                <img
+                  src="assets/Imps.png"
+                  alt="Project 1"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 bg-dark-900/80 flex flex-col justify-center items-center opacity-0 transition-all duration-300 transform translate-y-4"
+                >
+                  <h3 class="text-xl font-heading font-bold text-white mb-2">
+                    IMPS Framework
+                  </h3>
+                  <p class="text-light-300 text-center px-4 mb-4">
+                    A scalable micro-frontend framework for enterprise
+                    healthcare solutions, built with React and Vite, integrating
+                    authentication, analytics, and communication via Firebase,
+                    Keycloak, Power BI, and Zoom.
+                  </p>
+                  <div class="flex space-x-2">
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Redux</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Vite</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Microfrontend</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 bg-white dark:bg-dark-700">
+                <h3 class="text-xl font-bold mb-2">IMPS Framework</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Built a scalable micro-frontend architecture with React,
+                  TypeScript, and Vite, integrating shared modules, state
+                  management (RTK Query, Redux), and third-party services like
+                  Firebase, Keycloak, Power BI, and Zoom. Delivered responsive,
+                  localized UIs with MUI and ensured high code quality through
+                  CI and agile collaboration.
+                </p>
+                <div class="flex justify-between items-center">
+                  <a
+                    target="_blank"
+                    href="https://www.youtube.com/watch?v=V0tR-Lx-mYY"
+                    class="text-primary-500 hover:text-primary-600"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
+          >
+            <div class="project-card-inner">
+              <div class="relative h-60 overflow-hidden">
+                <img
+                  src="assets/Kanban.png"
+                  alt="Project 1"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 bg-dark-900/80 flex flex-col justify-center items-center opacity-0 transition-all duration-300 transform translate-y-4"
+                >
+                  <h3 class="text-xl font-heading font-bold text-white mb-2">
+                    Interactive Kanban Board
+                  </h3>
+                  <p class="text-light-300 text-center px-4 mb-4">
+                    Kanban board to help teams track tasks, prioritize work, and
+                    manage workflows efficiently across devices while preserving
+                    user preferences.
+                  </p>
+                  <div class="flex space-x-2">
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Redux Toolkit</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 bg-white dark:bg-dark-700">
+                <h3 class="text-xl font-bold mb-2">
+                  Interactive Kanban Board Application
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Developed an interactive Kanban board using React JS and pure
+                  CSS, integrating with a REST API to display and manage
+                  tickets. Implemented dynamic grouping by status, user, or
+                  priority, with sorting options by priority and title. Ensured
+                  simple, responsive design user-friendly UI, preserving user
+                  preferences across page reloads.
+                </p>
+                <div class="flex justify-between items-center">
+                  <a
+                    target="_blank"
+                    href="https://rithish-kanban-board.netlify.app/"
+                    class="text-primary-500 hover:text-primary-600"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Visit site
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://github.com/Rithish891/kanban-board"
+                    class="text-primary-500 hover:text-primary-600"
+                  >
+                    <i class="fab fa-github"></i> Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
+          >
+            <div class="project-card-inner">
+              <div class="relative h-60 overflow-hidden">
+                <img
+                  src="assets/CourseDashboard.png"
+                  alt="Project 1"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 bg-dark-900/80 flex flex-col justify-center items-center opacity-0 transition-all duration-300 transform translate-y-4"
+                >
+                  <h3 class="text-xl font-heading font-bold text-white mb-2">
+                    Course Management Dashboard
+                  </h3>
+                  <p class="text-light-300 text-center px-4 mb-4">
+                    A responsive course management dashboard in React for
+                    real-time access—enabling students to view courses and
+                    faculties to update content via seamless backend integration
+                    using Axios.
+                  </p>
+                  <div class="flex space-x-2">
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Material-UI</span
+                    >
+                    <span
+                      class="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >Axios</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="p-6 bg-white dark:bg-dark-700">
+                <h3 class="text-xl font-bold mb-2">
+                  Course Management Dashboard
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  Developed a dynamic and responsive course management dashboard
+                  using React, designed to provide an intuitive user interface
+                  for students to view course details and for faculty members to
+                  update course content seamlessly. The application efficiently
+                  handles HTTP requests using Axios to interact with the
+                  backend, enabling real-time fetching and updating of course
+                  information.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">My Skills</h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-purple-500 to-emerald-400 mx-auto"
+          ></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-8 text-center">
+              Tools & Technologies
+            </h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-react text-3xl text-blue-500 mr-3"></i>
+                <span>React</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-code-branch text-3xl text-purple-500 mr-3"></i>
+                <span>Redux</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-react text-3xl text-yellow-500 mr-3"></i>
+                <span>React Native</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-code text-3xl text-pink-500 mr-3"></i>
+                <span>TypeScript</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-js-square text-3xl text-yellow-500 mr-3"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-bolt text-3xl text-yellow-400 mr-3"></i>
+                <span>Vite</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-cube text-3xl text-green-500 mr-3"></i>
+                <span>Webpack</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-palette text-3xl text-blue-600 mr-3"></i>
+                <span>Material UI</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-wind text-3xl text-pink-600 mr-3"></i>
+                <span>Tailwind CSS</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-html5 text-3xl text-orange-600 mr-3"></i>
+                <span>HTML</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-css3-alt text-3xl text-red-500 mr-3"></i>
+                <span>CSS</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-python text-3xl text-purple-500 mr-3"></i>
+                <span>Python</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-fire text-3xl text-orange-500 mr-3"></i>
+                <span>Firebase</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-database text-3xl text-blue-500 mr-3"></i>
+                <span>SQL</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-chart-bar text-3xl text-yellow-500 mr-3"></i>
+                <span>Power BI</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-chart-line text-3xl text-orange-500 mr-3"></i>
+                <span>D3.js</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-docker text-3xl text-blue-500 mr-3"></i>
+                <span>Docker</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fab fa-git-alt text-3xl text-orange-500 mr-3"></i>
+                <span>Git</span>
+              </div>
+              <div class="glass p-4 rounded-lg flex items-center magnetic">
+                <i class="fas fa-paper-plane text-3xl text-orange-500 mr-3"></i>
+                <span>Postman</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-8">Professional Skills</h3>
+
+            <div class="grid grid-cols-2 gap-6">
+              <div class="glass p-6 rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-purple-500 bg-opacity-20 flex items-center justify-center text-purple-500 mb-4"
+                >
+                  <i class="fas fa-lightbulb text-xl"></i>
+                </div>
+                <h4 class="font-bold mb-2">Creative Design</h4>
+                <p class="text-sm opacity-70">
+                  Creating visually appealing and user-friendly interfaces.
+                </p>
+              </div>
+
+              <div class="glass p-6 rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center text-blue-500 mb-4"
+                >
+                  <i class="fas fa-code text-xl"></i>
+                </div>
+                <h4 class="font-bold mb-2">Clean Code</h4>
+                <p class="text-sm opacity-70">
+                  Writing maintainable and efficient code following best
+                  practices.
+                </p>
+              </div>
+
+              <div class="glass p-6 rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-emerald-500 bg-opacity-20 flex items-center justify-center text-emerald-500 mb-4"
+                >
+                  <i class="fas fa-mobile-alt text-xl"></i>
+                </div>
+                <h4 class="font-bold mb-2">Responsive Design</h4>
+                <p class="text-sm opacity-70">
+                  Ensuring optimal experience across all device sizes.
+                </p>
+              </div>
+
+              <div class="glass p-6 rounded-xl">
+                <div
+                  class="w-12 h-12 rounded-full bg-amber-500 bg-opacity-20 flex items-center justify-center text-amber-500 mb-4"
+                >
+                  <i class="fas fa-users text-xl"></i>
+                </div>
+                <h4 class="font-bold mb-2">Team Collaboration</h4>
+                <p class="text-sm opacity-70">
+                  Working effectively with designers, developers, and
+                  stakeholders.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section
+      id="experience"
+      class="py-20 bg-gray-100 dark:bg-dark-800 section-hidden"
+    >
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="gradient-text">Work Experience</span>
+        </h2>
+        <div class="relative">
+          <!-- Timeline -->
+          <div class="space-y-8">
+            <!-- Experience 1 -->
+            <div class="experience-card glass p-6 rounded-xl relative">
+              <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/4 mb-4 md:mb-0">
+                  <div class="flex items-center">
+                    <div
+                      class="w-12 h-12 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center mr-4"
+                    >
+                      <img
+                        src="assets/capgemini.png"
+                        alt="Capgemini"
+                        class="w-8 h-8 object-contain"
+                      />
+                    </div>
+                    <div>
+                      <h3 class="font-bold">Capgemini Engineering</h3>
+                      <p class="text-sm text-gray-500">2024 - Present</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/4">
+                  <h3 class="text-xl font-bold mb-2">
+                    Professional I - Senior Frontend Developer
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Currently leading the frontend team, driving architectural
+                    decisions, feature delivery, and mentoring junior
+                    developers. Integrated third-party services like Firebase,
+                    Keycloak, Power BI, and Zoom to enhance platform
+                    capabilities. Ensured high code quality through CI/CD, code
+                    reviews, and agile practices while collaborating with
+                    cross-functional teams.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Redux</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Vitest</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Firebase</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >PWA</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Leadership</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="experience-card glass p-6 rounded-xl relative">
+              <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/4 mb-4 md:mb-0">
+                  <div class="flex items-center">
+                    <div
+                      class="w-12 h-12 rounded-full bg-white dark:bg-dark-700 flex items-center justify-center mr-4"
+                    >
+                      <img
+                        src="assets/capgemini.png"
+                        alt="Capgemini"
+                        class="w-8 h-8 object-contain"
+                      />
+                    </div>
+                    <div>
+                      <h3 class="font-bold">Capgemini Engineering</h3>
+                      <p class="text-sm text-gray-500">2022-2024</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/4">
+                  <h3 class="text-xl font-bold mb-2">
+                    Associate II -Frontend Developer
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    Built a scalable micro frontend architecture using React,
+                    TypeScript, and Vite, along with a shared Common
+                    Microfrontend for reusability. Implemented efficient data
+                    fetching with RTK Query and state management using Redux
+                    Toolkit. Developed responsive Material-UI components, added
+                    internationalization, and managed environment-specific
+                    configurations.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Microfrontend</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Vite</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200"
+                      >Webpack</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      id="education"
+      class="py-20 relative overflow-hidden section-hidden"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            Education
+          </h2>
+          <div class="w-20 h-1 bg-primary-500 mx-auto"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto grid grid-cols-1 gap-8">
+          <!-- Education 1 -->
+          <div
+            class="education-card glass p-6 rounded-lg shadow hover-glow hover-tilt"
+          >
+            <div class="flex items-start mb-4">
+              <div
+                class="w-16 h-16 rounded-full bg-primary-500 flex items-center justify-center text-white mr-4"
+              >
+                <i class="fas fa-graduation-cap text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">
+                  Bachelor's in Electronics and Communication Engineering
+                </h3>
+                <h4 class="text-lg font-medium">Shiv Nadar University</h4>
+              </div>
+            </div>
+            <ul
+              class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4"
+            >
+              <li>SNU Student Committee - Maintenance and Health</li>
+              <li>
+                BREEZE 2019 - SNU Annual fest Working Committee - Hospitality
+                team
+              </li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-primary-500 font-medium"
+                >2018 - 2022</span
+              >
+              <span
+                class="text-sm bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+                >GPA: 7.35/10.0</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="py-20 bg-white text-gray-800 dark:bg-gradient-to-br dark:from-dark-900 dark:to-primary-900 dark:text-white"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <span class="text-gradient-animate">Get In Touch</span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-primary-400 to-purple-500 mx-auto"
+          ></div>
+          <p class="max-w-2xl mx-auto mt-6 text-gray-600 dark:text-gray-300">
+            Feel free to reach out to me for any questions or opportunities. I'm
+            always open to discussing new projects, creative ideas or
+            opportunities to be part of your vision.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="mr-4 mt-1 text-primary-400">
+                  <i class="fas fa-envelope text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Email</h4>
+                  <a
+                    href="mailto:rithishjakkireddy@gmail.com"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary-400 transition-colors"
+                    >rithishjakkireddy@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="mr-4 mt-1 text-primary-400">
+                  <i class="fas fa-phone-alt text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Phone</h4>
+                  <a
+                    href="tel:+918919862345"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary-400 transition-colors"
+                    >+91 89198 62345</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="mr-4 mt-1 text-primary-400">
+                  <i class="fab fa-whatsapp text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">WhatsApp</h4>
+                  <a
+                    href="https://wa.me/918919862345"
+                    target="_blank"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary-400 transition-colors"
+                    >+91 89198 62345</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="mr-4 mt-1 text-primary-400">
+                  <i class="fas fa-map-marker-alt text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Location</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Hyderabad, India
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Connect With Me</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">
+              Follow me on social media to stay updated with my latest projects
+              and insights.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <a
+                href="https://github.com/Rithish891"
+                target="_blank"
+                class="magnetic glass p-4 rounded-xl flex flex-col items-center hover:bg-primary-500 hover:bg-opacity-20 transition-all"
+              >
+                <i class="fab fa-github text-3xl mb-2"></i>
+                <span>GitHub</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/rithishjakkireddy/"
+                target="_blank"
+                class="magnetic glass p-4 rounded-xl flex flex-col items-center hover:bg-primary-500 hover:bg-opacity-20 transition-all"
+              >
+                <i class="fab fa-linkedin-in text-3xl mb-2"></i>
+                <span>LinkedIn</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/rithish_jakkireddy/"
+                target="_blank"
+                class="magnetic glass p-4 rounded-xl flex flex-col items-center hover:bg-primary-500 hover:bg-opacity-20 transition-all"
+              >
+                <i class="fab fa-instagram text-3xl mb-2"></i>
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href="https://topmate.io/rithishjakkireddy"
+                target="_blank"
+                class="magnetic glass p-4 rounded-xl flex flex-col items-center hover:bg-primary-500 hover:bg-opacity-20 transition-all"
+              >
+                <i class="fa-regular fa-address-card text-3xl mb-2"></i>
+                <span>Topmate</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-8 bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-white"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <a href="#" class="text-2xl font-bold magnetic">_.RJ</a>
+          </div>
+
+          <div class="flex flex-wrap justify-center space-x-6 mb-4 md:mb-0">
+            <div class="flex space-x-6 mb-4">
+              <a href="#home" class="nav-link magnetic">Home</a>
+              <a href="#about" class="nav-link magnetic">About</a>
+              <a href="#projects" class="nav-link magnetic">Projects</a>
+              <a href="#skills" class="nav-link magnetic">Skills</a>
+            </div>
+            <div class="flex space-x-6">
+              <a href="#experience" class="nav-link magnetic">Experience</a>
+              <a href="#education" class="nav-link magnetic">Education</a>
+              <a href="#contact" class="nav-link magnetic">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-300 dark:border-gray-800 mt-8 pt-8 text-center md:text-left"
+        >
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="opacity-70">
+              &copy; 2025 Rithish Jakkireddy. All rights reserved.
+            </p>
+            <img
+              src="assets/Signature_Dark.png"
+              alt="Footer Logo"
+              class="w-1/2 md:w-2/12 overflow-hidden dark:hidden"
+            />
+            <img
+              src="assets/Signature_Light.png"
+              alt="Footer Logo"
+              class="w-1/2 md:w-2/12 overflow-hidden hidden dark:block"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Typewriter Effect
+      document.addEventListener("DOMContentLoaded", () => {
+        const textArray = [
+          "Rithish Jakkireddy",
+          "React enthusiast",
+          "Someone who turns ideas into websites",
+        ];
+
+        const typedText = document.querySelector(".typed-text");
+        const cursorBlink = document.querySelector(".cursor-blink");
+
+        let arrayIndex = 0;
+        let charIndex = 0;
+
+        function typeEffect() {
+          if (charIndex < textArray[arrayIndex].length) {
+            typedText.textContent += textArray[arrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeEffect, 100);
+          } else {
+            setTimeout(eraseEffect, 800);
+          }
+        }
+
+        function eraseEffect() {
+          if (charIndex > 0) {
+            typedText.textContent = textArray[arrayIndex].substring(
+              0,
+              charIndex - 1
+            );
+            charIndex--;
+            setTimeout(eraseEffect, 25);
+          } else {
+            arrayIndex = (arrayIndex + 1) % textArray.length;
+            setTimeout(typeEffect, 200);
+          }
+        }
+
+        cursorBlink.style.animation = "blink-caret 1s step-end infinite";
+        typeEffect();
+      });
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        );
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMobileMenu = document.getElementById("close-mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("hidden");
+        mobileMenu.classList.add("flex");
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+      });
+
+      // Custom Cursor
+      const cursor = document.querySelector(".cursor");
+      const cursorFollower = document.querySelector(".cursor-follower");
+
+      document.addEventListener("mousemove", e => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+
+        setTimeout(() => {
+          cursorFollower.style.left = e.clientX + "px";
+          cursorFollower.style.top = e.clientY + "px";
+        }, 100);
+      });
+
+      document.addEventListener("mousedown", () => {
+        cursor.classList.add("cursor-click");
+      });
+
+      document.addEventListener("mouseup", () => {
+        cursor.classList.remove("cursor-click");
+      });
+
+      // Add cursor hover effect to elements
+      const hoverElements = document.querySelectorAll(
+        "a, button, .hover-scale, .hover-glow, .hover-tilt, .skill-icon, .project-card, .experience-card, .education-card"
+      );
+
+      hoverElements.forEach(el => {
+        el.addEventListener("mouseenter", () => {
+          cursor.classList.add("cursor-hover");
+          cursorFollower.classList.add("cursor-hover");
+        });
+
+        el.addEventListener("mouseleave", () => {
+          cursor.classList.remove("cursor-hover");
+          cursorFollower.classList.remove("cursor-hover");
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("section-visible");
+            entry.target.classList.remove("section-hidden");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll("section").forEach(section => {
+        if (section.id !== "home") {
+          section.classList.add("section-hidden");
+          observer.observe(section);
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+              mobileMenu.classList.remove("flex");
+            }
+          }
+        });
+      });
+
+      // Check for saved theme preference
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Scroll to Top Button
+      const scrollToTopButton = document.getElementById("scroll-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollToTopButton.classList.remove("hidden");
+        } else {
+          scrollToTopButton.classList.add("hidden");
+        }
+      });
+
+      scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
