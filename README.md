@@ -11,12 +11,12 @@ Welcome to my portfolio website! This site showcases my projects, skills, and ex
 
 ## Technologies Used
 
-- **Frontend**: [HTML, CSS, JavaScript, Tailwind CSS]
-- **Other Tools**: [Git]
+- **Frontend**: HTML, CSS, JavaScript, Tailwind CSS
+- **Other Tools**: Git
 
 ## How to View
 
-Visit the live website at: [https://rithishjakkireddy.netlify.app/]
+Visit the live website at: https://rithishjakkireddy.netlify.app/
 
 ## Feedback
 
