@@ -83,7 +83,6 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap");
 
-      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -98,8 +97,6 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #0ea5e9;
       }
-
-      /* Custom Cursor */
       .cursor {
         position: fixed;
         width: 20px;
@@ -133,8 +130,6 @@
       .cursor-follower.cursor-hover {
         transform: translate(-50%, -50%) scale(1.5);
       }
-
-      /* Glassmorphism Effect */
       .glass {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
@@ -145,8 +140,6 @@
         background: rgba(15, 23, 42, 0.7);
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
-
-      /* Section Transitions */
       section {
         transition: all 0.5s ease;
       }
@@ -158,8 +151,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
-      /* Timeline */
       .timeline-item:not(:last-child)::after {
         content: "";
         position: absolute;
@@ -169,8 +160,6 @@
         width: 2px;
         background: linear-gradient(to bottom, #0ea5e9, #7dd3fc);
       }
-
-      /* Floating Elements */
       .floating-element {
         animation: float 6s ease-in-out infinite;
       }
@@ -178,16 +167,12 @@
         animation-name: float-reverse;
         animation-duration: 8s;
       }
-
-      /* Gradient Text */
       .gradient-text {
         background: linear-gradient(to right, #0ea5e9, #7dd3fc);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
-
-      /* Hover Effects */
       .hover-scale {
         transition: transform 0.3s ease;
       }
@@ -203,8 +188,6 @@
       .hover-tilt:hover {
         transform: rotate(2deg) scale(1.03);
       }
-
-      /* Skill Icons */
       .skill-icon {
         transition: all 0.3s ease;
       }
@@ -212,8 +195,6 @@
         transform: translateY(-5px) scale(1.1);
         filter: drop-shadow(0 5px 5px rgba(14, 165, 233, 0.3));
       }
-
-      /* Experience Cards */
       .experience-card {
         transition: all 0.3s ease;
       }
@@ -224,7 +205,6 @@
       .dark .experience-card:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       }
-
       .project-card:hover .project-overlay {
         opacity: 1;
         transform: translateY(0);
@@ -232,12 +212,17 @@
       .skill-item:hover .skill-icon {
         transform: translateY(-5px);
       }
-
       .cursor-blink {
         display: inline-block;
         width: 1px;
         background-color: rgb(14, 165, 233);
         animation: none;
+      }
+      .animate-spin-slow {
+        animation: spin 12s linear infinite;
+      }
+      .animate-fade-in {
+        animation: fadeInUp 0.8s ease-out both;
       }
 
       @keyframes fadeInUp {
@@ -251,10 +236,6 @@
         }
       }
 
-      .animate-spin-slow {
-        animation: spin 12s linear infinite;
-      }
-
       @keyframes spin {
         from {
           transform: rotate(0deg);
@@ -264,16 +245,11 @@
           transform: rotate(360deg);
         }
       }
-
-      .animate-fade-in {
-        animation: fadeInUp 0.8s ease-out both;
-      }
     </style>
   </head>
   <body
     class="font-sans bg-gray-50 text-gray-800 dark:bg-dark-900 dark:text-gray-200 transition-colors duration-300"
   >
-    <!-- Scroll to Top Button -->
     <button
       id="scroll-to-top"
       class="fixed bottom-6 right-6 z-50 w-14 h-14 flex items-center justify-center rounded-full backdrop-blur-md bg-white/10 text-white border border-white/30 hover:backdrop-blur-xl hover:bg-white/20 hover:scale-110 transition-all duration-500 ease-in-out shadow-md hover:shadow-2xl"
@@ -283,14 +259,13 @@
     </button>
 
     <a
-      href="assets/RithishJakkireddy_Resume.pdf"
+      href="https://drive.google.com/file/d/1Yf5Pz1kM7CV1aAcaMyndFSSckmpXjAmN/view?usp=drive_link"
       target="_blank"
       rel="noopener noreferrer"
       class="fixed bottom-6 left-6 z-50 group"
       title="Rithish's Resume"
     >
       <div class="relative w-24 h-24">
-        <!-- Rotating Text -->
         <div class="absolute inset-0 animate-spin-slow">
           <svg viewBox="0 0 100 100" class="w-full h-full">
             <defs>
@@ -310,8 +285,6 @@
             </text>
           </svg>
         </div>
-
-        <!-- Avatar -->
         <img
           src="assets/Avatar.png"
           alt="Rithish"
@@ -319,12 +292,8 @@
         />
       </div>
     </a>
-
-    <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-
-    <!-- Theme Toggle -->
     <button
       id="theme-toggle"
       class="fixed top-4 right-16 z-50 p-2 rounded-full glass hover-glow hover-scale"
@@ -333,7 +302,6 @@
       <i class="fas fa-sun hidden dark:block"></i>
     </button>
 
-    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-40 glass py-4">
       <div class="container mx-auto px-6 flex justify-between items-center">
         <a href="#" class="text-2xl font-bold gradient-text hover-tilt">_.RJ</a>
@@ -380,7 +348,6 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div
       id="mobile-menu"
       class="fixed inset-0 z-30 bg-black bg-opacity-90 hidden flex-col items-center justify-center space-y-8"
@@ -425,7 +392,6 @@
       >
     </div>
 
-    <!-- Hero Section -->
     <section
       id="home"
       class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
@@ -510,7 +476,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 relative overflow-hidden section-hidden">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
@@ -590,7 +555,6 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section
       id="projects"
       class="py-20 bg-gray-100 dark:bg-dark-800 relative overflow-hidden section-hidden"
@@ -604,7 +568,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1 -->
           <div
             class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
           >
@@ -674,7 +637,6 @@
             </div>
           </div>
 
-          <!-- Project 2 -->
           <div
             class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
           >
@@ -744,7 +706,6 @@
             </div>
           </div>
 
-          <!-- Project 3 -->
           <div
             class="project-card rounded-xl overflow-hidden shadow-lg relative hover-glow"
           >
@@ -807,8 +768,6 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <!-- Skills Section -->
     <section id="skills" class="py-20">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="text-center mb-16">
@@ -962,7 +921,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section
       id="experience"
       class="py-20 bg-gray-100 dark:bg-dark-800 section-hidden"
@@ -972,9 +930,7 @@
           <span class="gradient-text">Work Experience</span>
         </h2>
         <div class="relative">
-          <!-- Timeline -->
           <div class="space-y-8">
-            <!-- Experience 1 -->
             <div class="experience-card glass p-6 rounded-xl relative">
               <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/4 mb-4 md:mb-0">
@@ -1041,7 +997,6 @@
               </div>
             </div>
 
-            <!-- Experience 2 -->
             <div class="experience-card glass p-6 rounded-xl relative">
               <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/4 mb-4 md:mb-0">
@@ -1104,7 +1059,6 @@
       </div>
     </section>
 
-    <!-- Education Section -->
     <section
       id="education"
       class="py-20 relative overflow-hidden section-hidden"
@@ -1118,7 +1072,6 @@
         </div>
 
         <div class="max-w-3xl mx-auto grid grid-cols-1 gap-8">
-          <!-- Education 1 -->
           <div
             class="education-card glass p-6 rounded-lg shadow hover-glow hover-tilt"
           >
