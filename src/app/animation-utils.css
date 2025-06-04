@@ -1,0 +1,45 @@
+/* Glass effect and hover animations */
+@layer components {
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 8px 2px var(--color-primary);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .hover-tilt {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .hover-tilt:hover {
+    transform: rotate(-2deg);
+  }
+
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background: linear-gradient(to right, #0ea5e9, #7dd3fc);
+  }
+}
