@@ -25,6 +25,7 @@ function SocialIcon({ type }: { type: string }) {
 }
 
 export default function HeroSection() {
+  const currentText = useRef("");
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
@@ -66,16 +67,12 @@ export default function HeroSection() {
       url: "https://www.instagram.com/rithish_jakkireddy",
     },
   ];
-  const currentText = useRef("");
 
-  const textArray = React.useMemo(
-    () => [
-      "Rithish Jakkireddy",
-      "React enthusiast",
-      "Someone who turns ideas into websites",
-    ],
-    []
-  );
+  const textArray = [
+    "Rithish Jakkireddy",
+    "React enthusiast",
+    "Someone who turns ideas into websites",
+  ];
 
   // Generate particles on client-side only
   useEffect(() => {
