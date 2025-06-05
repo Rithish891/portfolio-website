@@ -374,7 +374,7 @@ export default function HeroSection() {
                 <div className="rounded-full bg-gradient-to-br from-primary/90 via-accent to-ring p-[3px] shadow-lg shadow-primary/20 overflow-hidden">
                   <div className="rounded-full p-1 bg-background/80 backdrop-filter backdrop-blur-sm overflow-hidden">
                     <Image
-                      src="/assets/Rithish.jpg"
+                      src="/assets/Rithish.JPG"
                       alt="Rithish Jakkireddy"
                       width={400}
                       height={400}

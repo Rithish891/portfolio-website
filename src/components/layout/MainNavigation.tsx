@@ -11,8 +11,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { handleNavLinkClick } from "@/lib/scroll-utils";
+
 import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
+import { handleNavLinkClick } from "@/lib/utils/scroll-utils";
 
 export function MainNavigation() {
   const { theme, setTheme } = useTheme();

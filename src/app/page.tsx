@@ -1,7 +1,7 @@
-import { MainNavigation } from "@/components/MainNavigation";
+import { MainNavigation } from "@/components/layout/MainNavigation";
 import CustomCursor from "@/components/CustomCursor";
 import ResumeDownloadButton from "@/components/ResumeDownloadButton";
-import MobileUtilityBar from "@/components/MobileUtilityBar";
+import MobileUtilityBar from "@/components/layout/MobileUtilityBar";
 import Preloader from "@/components/Preloader";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -11,7 +11,7 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import EducationSection from "@/components/sections/EducationSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/sections/Footer";
-import ChatBot from "@/components/ChatBot";
+import ChatBot from "@/components/features/ChatBot";
 import ContentWrapper from "@/components/ContentWrapper";
 
 export default function Home() {

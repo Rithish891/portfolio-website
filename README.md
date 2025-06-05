@@ -1,4 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
+
+A modern, responsive portfolio website built with Next.js, TypeScript, and TailwindCSS.
+
+## Project Structure
+
+This project follows modern frontend development best practices with a clean and maintainable architecture:
+
+```
+src/
+  app/                           # Next.js App Router pages
+    api/                         # API routes
+    layout.tsx                   # Root layout component
+    page.tsx                     # Home page component
+  components/
+    layout/                      # Layout components
+      MainNavigation.tsx         # Main navigation header
+      MobileUtilityBar.tsx       # Mobile navigation bar
+    sections/                    # Page sections components
+    ui/                          # Reusable UI components
+    features/                    # Feature-specific components
+      ChatBot.tsx                # AI chat feature component
+  hooks/                         # Custom React hooks
+  contexts/                      # React contexts/providers
+  lib/
+    services/                    # Service classes
+    utils/                       # Utility functions
+  types/                         # TypeScript type definitions
+  constants/                     # App constants, configs
+public/
+  assets/                        # Static assets
+```
+
+## Technology Stack
+
+- **Framework**: Next.js with App Router
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **UI Libraries**: Framer Motion, Radix UI
+- **AI Integration**: Google Generative AI (Gemini)
+- **State Management**: React Context API
+- **Deployment**: Vercel
 
 ## Getting Started
 

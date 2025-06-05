@@ -1,4 +1,4 @@
-import { ChatService } from "@/lib/chat-service";
+import { ChatService } from "@/lib/services/chat-service";
 import { NextRequest, NextResponse } from "next/server";
 
 let chatServiceInstance: ChatService;

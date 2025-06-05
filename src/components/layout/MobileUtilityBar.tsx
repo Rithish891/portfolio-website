@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { handleNavLinkClick } from "@/lib/scroll-utils";
 import {
   IoHome,
   IoPersonOutline,
@@ -15,6 +14,7 @@ import {
   IoCompass,
   IoClose,
 } from "react-icons/io5";
+import { handleNavLinkClick } from "@/lib/utils/scroll-utils";
 
 const navigationItems = [
   { id: "home", label: "Home", icon: <IoHome /> },

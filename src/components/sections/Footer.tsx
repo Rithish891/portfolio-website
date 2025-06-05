@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { handleNavLinkClick } from "@/lib/scroll-utils";
+import { handleNavLinkClick } from "@/lib/utils/scroll-utils";
 
 export default function Footer() {
   return (
