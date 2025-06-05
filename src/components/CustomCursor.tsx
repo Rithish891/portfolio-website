@@ -94,8 +94,6 @@ export default function CustomCursor() {
       transition: { type: "spring", mass: 0.3 },
     },
   };
-
-  // Only show custom cursor on desktop devices
   const [showCursor, setShowCursor] = useState(false);
   useClientSideEffect(() => {
     setShowCursor(window.matchMedia("(min-width: 1024px)").matches);

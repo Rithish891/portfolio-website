@@ -2,40 +2,51 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import {
+  SiReact,
+  SiRedux,
+  SiTypescript,
+  SiJavascript,
+  SiVite,
+  SiWebpack,
+  SiNodedotjs,
+  SiExpress,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiPython,
+  SiFirebase,
+  SiMysql,
+  SiD3Dotjs,
+  SiOpenai,
+  SiDocker,
+  SiGit,
+  SiJira,
+  SiFigma,
+  SiPostman,
+} from "react-icons/si";
+import { TbBrandPowershell, TbShieldLock } from "react-icons/tb";
+import {
+  MdOutlineDevices,
+  MdOutlinePalette,
+  MdOutlineBarChart,
+  MdSmartToy,
+  MdAccountTree,
+  MdCompareArrows,
+} from "react-icons/md";
 
 interface SkillItemProps {
-  icon: string;
+  icon: React.ReactNode;
   name: string;
-  isIconClass?: boolean;
 }
 
-const SkillItem: React.FC<SkillItemProps> = ({
-  icon,
-  name,
-  isIconClass = true,
-}) => (
+const SkillItem: React.FC<SkillItemProps> = ({ icon, name }) => (
   <motion.div
     className="glass p-4 rounded-lg flex items-center"
     whileHover={{ scale: 1.05 }}
   >
-    {isIconClass ? (
-      <i className={`${icon} text-3xl mr-3`}></i>
-    ) : (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 mr-3"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d={icon}
-        />
-      </svg>
-    )}
+    <div className="text-3xl mr-3">{icon}</div>
     <span>{name}</span>
   </motion.div>
 );
@@ -43,37 +54,44 @@ const SkillItem: React.FC<SkillItemProps> = ({
 export default function SkillsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+
   const technicalSkills: SkillItemProps[] = [
-    { icon: "fab fa-react text-blue-500", name: "React" },
-    { icon: "fas fa-code-branch text-purple-600", name: "Redux" },
-    { icon: "fab fa-react text-cyan-500", name: "React Native" },
-    { icon: "fas fa-code text-blue-400", name: "TypeScript" },
-    { icon: "fab fa-js-square text-yellow-400", name: "JavaScript" },
-    { icon: "fas fa-bolt text-purple-500", name: "Vite" },
-    { icon: "fas fa-cube text-blue-600", name: "Webpack" },
-    { icon: "fab fa-node-js text-green-600", name: "Node.js" },
-    { icon: "fas fa-server text-gray-600", name: "Express.js" },
-    { icon: "fab fa-n text-black dark:text-white", name: "Next.js" },
-    { icon: "fas fa-mobile-alt text-blue-500", name: "PWA" },
-    { icon: "fas fa-palette text-pink-500", name: "Material UI" },
-    { icon: "fab fa-css3 text-blue-400", name: "Tailwind CSS" },
-    { icon: "fab fa-html5 text-red-500", name: "HTML" },
-    { icon: "fab fa-css3-alt text-blue-500", name: "CSS" },
-    { icon: "fab fa-python text-green-600", name: "Python" },
-    { icon: "fas fa-fire text-orange-500", name: "Firebase" },
-    { icon: "fas fa-database text-yellow-600", name: "SQL" },
-    { icon: "fas fa-chart-bar text-cyan-600", name: "Power BI" },
-    { icon: "fas fa-chart-line text-purple-500", name: "D3.js" },
-    { icon: "fas fa-brain text-pink-400", name: "GenAI" },
-    { icon: "fas fa-robot text-indigo-500", name: "LLMs" },
-    { icon: "fas fa-project-diagram text-orange-600", name: "FHIR" },
-    { icon: "fas fa-exchange-alt text-green-500", name: "RESTful APIs" },
-    { icon: "fab fa-docker text-blue-600", name: "Docker" },
-    { icon: "fas fa-shield-alt text-red-600", name: "Keycloak" },
-    { icon: "fab fa-git-alt text-orange-600", name: "Git" },
-    { icon: "fab fa-jira text-blue-500", name: "JIRA" },
-    { icon: "fab fa-figma text-purple-400", name: "Figma" },
-    { icon: "fas fa-paper-plane text-blue-400", name: "Postman" },
+    { icon: <SiReact className="text-blue-500" />, name: "React" },
+    { icon: <SiRedux className="text-purple-600" />, name: "Redux" },
+    { icon: <SiReact className="text-cyan-500" />, name: "React Native" },
+    { icon: <SiTypescript className="text-blue-400" />, name: "TypeScript" },
+    { icon: <SiJavascript className="text-yellow-400" />, name: "JavaScript" },
+    { icon: <SiVite className="text-purple-500" />, name: "Vite" },
+    { icon: <SiWebpack className="text-blue-600" />, name: "Webpack" },
+    { icon: <SiNodedotjs className="text-green-600" />, name: "Node.js" },
+    { icon: <SiExpress className="text-gray-600" />, name: "Express.js" },
+    { icon: <SiNextdotjs className="dark:text-white" />, name: "Next.js" },
+    { icon: <MdOutlineDevices className="text-blue-500" />, name: "PWA" },
+    {
+      icon: <MdOutlinePalette className="text-pink-500" />,
+      name: "Material UI",
+    },
+    { icon: <SiTailwindcss className="text-blue-400" />, name: "Tailwind CSS" },
+    { icon: <SiHtml5 className="text-red-500" />, name: "HTML" },
+    { icon: <SiCss3 className="text-blue-500" />, name: "CSS" },
+    { icon: <SiPython className="text-green-600" />, name: "Python" },
+    { icon: <SiFirebase className="text-orange-500" />, name: "Firebase" },
+    { icon: <SiMysql className="text-yellow-600" />, name: "SQL" },
+    { icon: <TbBrandPowershell className="text-cyan-600" />, name: "Power BI" },
+    { icon: <SiD3Dotjs className="text-purple-500" />, name: "D3.js" },
+    { icon: <SiOpenai className="text-pink-400" />, name: "GenAI" },
+    { icon: <MdSmartToy className="text-indigo-500" />, name: "LLMs" },
+    { icon: <MdAccountTree className="text-orange-600" />, name: "FHIR" },
+    {
+      icon: <MdCompareArrows className="text-green-500" />,
+      name: "RESTful APIs",
+    },
+    { icon: <SiDocker className="text-blue-600" />, name: "Docker" },
+    { icon: <TbShieldLock className="text-red-600" />, name: "Keycloak" },
+    { icon: <SiGit className="text-orange-600" />, name: "Git" },
+    { icon: <SiJira className="text-blue-500" />, name: "JIRA" },
+    { icon: <SiFigma className="text-purple-400" />, name: "Figma" },
+    { icon: <SiPostman className="text-blue-400" />, name: "Postman" },
   ];
 
   return (

@@ -11,9 +11,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { handleNavLinkClick } from "@/lib/scroll-utils";
 import { Moon, Sun, Menu } from "lucide-react";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export function MainNavigation() {
   const { theme, setTheme } = useTheme();
@@ -69,8 +69,8 @@ export function MainNavigation() {
             className="rounded-full hover:bg-accent/50"
             onClick={toggleTheme}
           >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <FiSun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <FiMoon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button>
 

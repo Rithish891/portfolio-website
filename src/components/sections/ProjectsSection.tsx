@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 interface ProjectProps {
   title: string;
@@ -68,47 +69,24 @@ const ProjectCard: React.FC<ProjectProps> = ({
           <h3 className="text-xl font-bold mb-2">{title}</h3>
           <p className="text-muted-foreground mb-4">{longDescription}</p>
           <div className="flex justify-between items-center">
+            {" "}
             {demoLink && (
               <Link
                 href={demoLink}
                 target="_blank"
                 className="text-primary hover:text-primary/80 transition-transform hover:translate-x-1"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 inline mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
+                <FaExternalLinkAlt className="h-4 w-4 inline mr-2" />
                 {demoLink.includes("youtube") ? "Demo" : "Visit site"}
               </Link>
-            )}
+            )}{" "}
             {codeLink && (
               <Link
                 href={codeLink}
                 target="_blank"
                 className="text-primary hover:text-primary/80 transition-transform hover:translate-x-1"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 inline mr-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <FaCode className="h-4 w-4 inline mr-2" />
                 Code
               </Link>
             )}

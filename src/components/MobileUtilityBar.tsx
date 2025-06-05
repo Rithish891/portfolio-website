@@ -4,15 +4,26 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { handleNavLinkClick } from "@/lib/scroll-utils";
+import {
+  IoHome,
+  IoPersonOutline,
+  IoCodeSlash,
+  IoHammer,
+  IoBriefcase,
+  IoSchool,
+  IoMailOutline,
+  IoCompass,
+  IoClose,
+} from "react-icons/io5";
 
 const navigationItems = [
-  { id: "home", label: "Home", icon: "home" },
-  { id: "about", label: "About", icon: "user" },
-  { id: "projects", label: "Projects", icon: "code" },
-  { id: "skills", label: "Skills", icon: "tools" },
-  { id: "experience", label: "Experience", icon: "briefcase" },
-  { id: "education", label: "Education", icon: "graduation-cap" },
-  { id: "contact", label: "Contact", icon: "envelope" },
+  { id: "home", label: "Home", icon: <IoHome /> },
+  { id: "about", label: "About", icon: <IoPersonOutline /> },
+  { id: "projects", label: "Projects", icon: <IoCodeSlash /> },
+  { id: "skills", label: "Skills", icon: <IoHammer /> },
+  { id: "experience", label: "Experience", icon: <IoBriefcase /> },
+  { id: "education", label: "Education", icon: <IoSchool /> },
+  { id: "contact", label: "Contact", icon: <IoMailOutline /> },
 ];
 
 export default function MobileUtilityBar() {
@@ -52,7 +63,11 @@ export default function MobileUtilityBar() {
           className="bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/80 transition-colors"
           aria-label="Navigation Menu"
         >
-          <i className={`fas fa-${showMenu ? "times" : "compass"} text-xl`}></i>
+          {showMenu ? (
+            <IoClose className="text-xl" />
+          ) : (
+            <IoCompass className="text-xl" />
+          )}
         </button>
       </div>
 
@@ -79,7 +94,8 @@ export default function MobileUtilityBar() {
                       : "hover:bg-accent text-accent-foreground"
                   }`}
                 >
-                  <i className={`fas fa-${item.icon} text-xl mb-1`}></i>
+                  {" "}
+                  <div className="text-xl mb-1">{item.icon}</div>
                   <span className="text-xs font-medium">{item.label}</span>
                 </Link>
               ))}

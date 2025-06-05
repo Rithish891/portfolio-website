@@ -4,18 +4,21 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { HiOutlineIdentification } from "react-icons/hi";
+import { VscCode } from "react-icons/vsc";
 
-// Social Icon component for rendering different social media icons with Font Awesome
+// Social Icon component for rendering different social media icons with React Icons
 function SocialIcon({ type }: { type: string }) {
   switch (type) {
     case "github":
-      return <i className="fab fa-github text-lg"></i>;
+      return <FaGithub className="text-lg" />;
     case "linkedin":
-      return <i className="fab fa-linkedin-in text-lg"></i>;
+      return <FaLinkedinIn className="text-lg" />;
     case "topmate":
-      return <i className="fa-regular fa-address-card"></i>;
+      return <HiOutlineIdentification className="text-lg" />;
     case "instagram":
-      return <i className="fab fa-instagram text-lg"></i>;
+      return <FaInstagram className="text-lg" />;
     default:
       return null;
   }
@@ -368,7 +371,6 @@ export default function HeroSection() {
               {/* Enhanced background decorative elements */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 via-primary/20 to-transparent -z-10 blur-md"></div>
               <div className="absolute inset-0 rotate-45 rounded-full bg-gradient-to-tr from-transparent via-ring/20 to-ring/30 -z-10 blur-md"></div>
-
               {/* Enhanced photo container with depth */}
               <div className="p-3 backdrop-blur-md rounded-full">
                 <div className="rounded-full bg-gradient-to-br from-primary/90 via-accent to-ring p-[3px] shadow-lg shadow-primary/20 overflow-hidden">
@@ -384,7 +386,6 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
-
               {/* Redesigned experience badge */}
               <div className="absolute -bottom-4 -right-4 transform hover:scale-110 hover:rotate-3 transition-all duration-300">
                 <div className="relative flex items-center justify-center bg-gradient-to-r from-primary via-accent to-ring p-[2px] rounded-2xl shadow-xl">
@@ -398,24 +399,10 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Developer icon with updated style */}
+              {/* Developer icon with updated style */}{" "}
               <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center shadow-lg transform hover:rotate-12 transition-transform">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-full"></div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-primary"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
+                <VscCode className="h-8 w-8 text-primary" />
               </div>
             </div>
           </motion.div>

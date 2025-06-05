@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { MdCode, MdDevices, MdBolt, MdFavorite } from "react-icons/md";
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -92,14 +93,23 @@ export default function AboutSection() {
               }}
             >
               {[
-                { icon: "code", label: "Clean Code" },
-                { icon: "mobile-alt", label: "Responsive" },
-                { icon: "bolt", label: "Fast" },
-                { icon: "heart", label: "Intuitive" },
+                {
+                  icon: <MdCode className="text-primary" />,
+                  label: "Clean Code",
+                },
+                {
+                  icon: <MdDevices className="text-primary" />,
+                  label: "Responsive",
+                },
+                { icon: <MdBolt className="text-primary" />, label: "Fast" },
+                {
+                  icon: <MdFavorite className="text-primary" />,
+                  label: "Intuitive",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  className="glass p-4 rounded-lg text-center hover-glow"
+                  className="glass p-4 flex flex-col rounded-lg text-center hover-glow items-center"
                   variants={{
                     hidden: { opacity: 0, y: 10 },
                     visible: {
@@ -109,9 +119,7 @@ export default function AboutSection() {
                     },
                   }}
                 >
-                  <div className="text-primary text-2xl mb-2">
-                    <i className={`fas fa-${item.icon}`}></i>
-                  </div>
+                  <div className="text-primary text-2xl mb-2">{item.icon}</div>
                   <h4 className="font-bold">{item.label}</h4>
                 </motion.div>
               ))}
