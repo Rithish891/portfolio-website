@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { handleNavLinkClick } from "@/lib/scroll-utils";
 import { Moon, Sun, Menu } from "lucide-react";
 
 export function MainNavigation() {
@@ -26,12 +27,12 @@ export function MainNavigation() {
     <nav className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-background/80 py-4 border-b">
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link
-          href="#"
-          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 hover:scale-105 transition-transform"
+          href="#home"
+          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-ring hover:scale-105 transition-transform"
+          onClick={e => handleNavLinkClick(e)}
         >
           _.RJ
         </Link>
-
         {/* Desktop Navigation */}
         <div className="hidden md:block">
           <NavigationMenu viewport={false}>
@@ -50,6 +51,7 @@ export function MainNavigation() {
                     <Link
                       href={item.href}
                       className="text-foreground/80 hover:text-primary transition-colors"
+                      onClick={e => handleNavLinkClick(e)}
                     >
                       {item.label}
                     </Link>
@@ -59,7 +61,6 @@ export function MainNavigation() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-
         <div className="flex items-center space-x-4">
           {/* Theme Toggle - Desktop */}
           <Button
@@ -103,7 +104,10 @@ export function MainNavigation() {
                 key={item.href}
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={e => {
+                  handleNavLinkClick(e);
+                  setIsMobileMenuOpen(false);
+                }}
               >
                 {item.label}
               </Link>

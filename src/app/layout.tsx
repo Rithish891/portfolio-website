@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rithish - Portfolio",
-  description: "Personal portfolio website",
+  title: "Rithish Jakkireddy | Frontend Developer",
+  description:
+    "Frontend developer with experience in React and TypeScript, focused on creating intuitive, user centric web applications.",
+  keywords:
+    "Rithish, Jakkireddy, Frontend, Developer, React, TypeScript, JavaScript, Portfolio",
 };
 
 export default function RootLayout({
@@ -24,7 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
