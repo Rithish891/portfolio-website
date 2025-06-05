@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { MdCode, MdDevices, MdBolt, MdFavorite } from "react-icons/md";
@@ -62,12 +62,13 @@ export default function AboutSection() {
           <motion.div className="md:w-2/3 md:pl-12" variants={fadeIn}>
             <h3 className="text-2xl font-bold mb-6">Who I Am</h3>
             <p className="mb-6 opacity-90">
-              I'm a frontend developer with over 3 years of experience 👨‍💻
+              {" "}
+              I&rsquo;m a frontend developer with over 3 years of experience 👨‍💻
               crafting modern, responsive web applications. I specialize in
               React ⚛️, TypeScript, and the latest JavaScript
               frameworks—building interfaces that are not just functional, but
               fast ⚡, accessible ♿, and delightful to use ✨.
-            </p>
+            </p>{" "}
             <p className="mb-6 opacity-90">
               My passion for web development started back in college 🎓, and it
               has been a creative obsession ever since. I love transforming
@@ -76,11 +77,10 @@ export default function AboutSection() {
             </p>
             <p className="mb-8 opacity-90">
               Outside of coding, I am either deep into a game 🎮, binge-watching
-              a good series 🎬, or learning something new, whether it's
+              a good series 🎬, or learning something new, whether it&rsquo;s
               exploring the latest tech trends 📚 or picking up new skills
               through online courses 🧑‍💻—always exploring, always evolving 🌱.
             </p>
-
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-4"
               variants={{

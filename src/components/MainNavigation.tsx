@@ -12,8 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { handleNavLinkClick } from "@/lib/scroll-utils";
-import { Moon, Sun, Menu } from "lucide-react";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { FiMenu, FiMoon, FiSun } from "react-icons/fi";
 
 export function MainNavigation() {
   const { theme, setTheme } = useTheme();
@@ -81,7 +80,7 @@ export function MainNavigation() {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <Menu className="h-6 w-6" />
+            <FiMenu className="h-6 w-6" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiOutlineIdentification } from "react-icons/hi";

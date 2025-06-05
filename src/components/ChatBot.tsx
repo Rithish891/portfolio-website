@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaTrash, FaUser, FaLightbulb } from "react-icons/fa";
 import { BsSendFill, BsChatDots } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 const renderFormattedText = (text: string) => {
@@ -35,7 +34,6 @@ const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -385,7 +383,7 @@ const ChatBot: React.FC = () => {
                     disabled={isLoading}
                     onKeyPress={e => {
                       if (e.key === "Enter" && !isLoading && input.trim())
-                        sendMessage(e as any);
+                        sendMessage(e as React.KeyboardEvent);
                     }}
                   />
                 </div>

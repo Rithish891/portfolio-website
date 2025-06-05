@@ -11,7 +11,6 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import EducationSection from "@/components/sections/EducationSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/sections/Footer";
-import Script from "next/script";
 import ChatBot from "@/components/ChatBot";
 import ContentWrapper from "@/components/ContentWrapper";
 

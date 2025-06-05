@@ -30,7 +30,6 @@ import { TbBrandPowershell, TbShieldLock } from "react-icons/tb";
 import {
   MdOutlineDevices,
   MdOutlinePalette,
-  MdOutlineBarChart,
   MdSmartToy,
   MdAccountTree,
   MdCompareArrows,

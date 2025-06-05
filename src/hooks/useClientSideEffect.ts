@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  */
 export function useClientSideEffect(
   effect: () => void | (() => void),
-  deps: any[] = []
+  deps: unknown[] = []
 ) {
   const [isMounted, setIsMounted] = useState(false);
 

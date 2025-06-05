@@ -66,15 +66,16 @@ export default function HeroSection() {
       url: "https://www.instagram.com/rithish_jakkireddy",
     },
   ];
-
-  const textArray = [
-    "Rithish Jakkireddy",
-    "React enthusiast",
-    "Someone who turns ideas into websites",
-  ];
-
   const currentText = useRef("");
-  const currentIndex = useRef(0);
+
+  const textArray = React.useMemo(
+    () => [
+      "Rithish Jakkireddy",
+      "React enthusiast",
+      "Someone who turns ideas into websites",
+    ],
+    []
+  );
 
   // Generate particles on client-side only
   useEffect(() => {
@@ -272,7 +273,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Hi, I'm
+                Hi, I&rsquo;m
               </motion.span>
               <motion.div
                 className="overflow-hidden relative"
