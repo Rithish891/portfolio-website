@@ -1,5 +1,5 @@
-import { model } from "../gemini";
-import { RESUME_CONTEXT } from "../resume-data";
+import { RESUME_CONTEXT } from "@/data/resume-data";
+import { model } from "../api/gemini";
 
 export class ChatService {
   private conversationHistory: Array<{
@@ -49,7 +49,13 @@ export class ChatService {
       return responseText;
     } catch (error) {
       console.error("Error sending message to Gemini:", error);
-      throw new Error("Failed to get response from AI");
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Unknown error from AI assistant";
+      throw new Error(
+        `Failed to get response from AI assistant: ${errorMessage}`
+      );
     }
   }
 

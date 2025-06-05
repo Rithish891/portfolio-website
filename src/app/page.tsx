@@ -1,6 +1,6 @@
 import { MainNavigation } from "@/components/layout/MainNavigation";
-import CustomCursor from "@/components/CustomCursor";
-import ResumeDownloadButton from "@/components/ResumeDownloadButton";
+import CustomCursor from "@/components/common/CustomCursor";
+import ResumeDownloadButton from "@/components/common/ResumeDownloadButton";
 import MobileUtilityBar from "@/components/layout/MobileUtilityBar";
 import Preloader from "@/components/Preloader";
 import HeroSection from "@/components/sections/HeroSection";
