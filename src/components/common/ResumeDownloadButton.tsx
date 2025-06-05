@@ -13,7 +13,6 @@ export default function ResumeDownloadButton() {
       className="fixed bottom-6 left-6 z-50 group"
       title="Rithish's Resume"
     >
-      {" "}
       <div className="relative w-24 h-24 flex items-center justify-center">
         <div className="absolute inset-0 animate-spin-slow">
           <svg viewBox="0 0 100 100" className="w-full h-full">

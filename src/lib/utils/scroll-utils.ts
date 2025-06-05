@@ -14,37 +14,6 @@ export const scrollToSection = (
   }
 };
 
-export const setupSectionObserver = (): (() => void) => {
-  if (typeof window === "undefined") return () => {};
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("section-visible");
-          entry.target.classList.remove("section-hidden");
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  // This function needs to be called after the DOM is loaded
-  const observeSections = () => {
-    document.querySelectorAll("section").forEach(section => {
-      observer.observe(section);
-    });
-  };
-
-  if (document.readyState === "complete") {
-    observeSections();
-    return () => {};
-  } else {
-    window.addEventListener("load", observeSections);
-    return () => window.removeEventListener("load", observeSections);
-  }
-};
-
 export const handleNavLinkClick = (
   e: React.MouseEvent<HTMLAnchorElement>,
   closeMobileMenu?: () => void

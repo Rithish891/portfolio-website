@@ -51,7 +51,7 @@ export default function AboutSection() {
                 width={256}
                 height={256}
                 className="w-full h-full object-cover rounded-lg shadow-xl hover-tilt"
-              />{" "}
+              />
               <div className="absolute -bottom-4 -right-4 glass p-4 rounded-lg shadow-lg w-3/4">
                 <h4 className="font-bold text-primary">Rithish Jakkireddy</h4>
                 <p className="text-sm text-foreground/80">Frontend Developer</p>
@@ -62,13 +62,12 @@ export default function AboutSection() {
           <motion.div className="md:w-2/3 md:pl-12" variants={fadeIn}>
             <h3 className="text-2xl font-bold mb-6">Who I Am</h3>
             <p className="mb-6 opacity-90">
-              {" "}
               I&rsquo;m a frontend developer with over 3 years of experience 👨‍💻
               crafting modern, responsive web applications. I specialize in
               React ⚛️, TypeScript, and the latest JavaScript
               frameworks—building interfaces that are not just functional, but
               fast ⚡, accessible ♿, and delightful to use ✨.
-            </p>{" "}
+            </p>
             <p className="mb-6 opacity-90">
               My passion for web development started back in college 🎓, and it
               has been a creative obsession ever since. I love transforming

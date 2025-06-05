@@ -66,7 +66,6 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
-              {" "}
               <div className="flex items-start">
                 <div className="mr-4 mt-1 text-blue-400">
                   <MdEmail className="h-6 w-6" />
@@ -80,7 +79,7 @@ export default function ContactSection() {
                     rithishjakkireddy@gmail.com
                   </a>
                 </div>
-              </div>{" "}
+              </div>
               <div className="flex items-start">
                 <div className="mr-4 mt-1 text-blue-400">
                   <MdPhone className="h-6 w-6" />
@@ -94,7 +93,7 @@ export default function ContactSection() {
                     +91 89198 62345
                   </a>
                 </div>
-              </div>{" "}
+              </div>
               <div className="flex items-start">
                 <div className="mr-4 mt-1 text-blue-400">
                   <MdLocationOn className="h-6 w-6" />
@@ -103,7 +102,7 @@ export default function ContactSection() {
                   <h4 className="font-bold mb-1">Location</h4>
                   <p className="text-muted-foreground">Hyderabad, India</p>
                 </div>
-              </div>{" "}
+              </div>
               <div className="flex items-start">
                 <a
                   href="https://drive.google.com/file/d/1Yf5Pz1kM7CV1aAcaMyndFSSckmpXjAmN/view?usp=drive_link"

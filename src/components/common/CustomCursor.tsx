@@ -25,7 +25,6 @@ export default function CustomCursor() {
     window.addEventListener("mousedown", mouseDown);
     window.addEventListener("mouseup", mouseUp);
 
-    // Add event listeners to all clickable elements
     const interactiveElements = document.querySelectorAll(
       "a, button, .hover-scale, .hover-glow, .hover-tilt, .project-card, .experience-card, .education-card"
     );
@@ -64,8 +63,6 @@ export default function CustomCursor() {
       height: 40,
       width: 40,
       backgroundColor: "rgba(14, 165, 233, 0.8)",
-      // TypeScript doesn't allow string type for mixBlendMode in framer-motion
-      // We'll apply this style via className instead
     },
     click: {
       x: mousePosition.x - 8,
@@ -114,7 +111,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {" "}
       <motion.div
         className={`cursor fixed rounded-full pointer-events-none z-[9999] ${
           cursorVariant === "hover" ? "mix-blend-difference" : ""

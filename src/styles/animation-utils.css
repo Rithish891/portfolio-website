@@ -1,4 +1,3 @@
-/* Glass effect and hover animations */
 @layer components {
   .backdrop-blur-md {
     backdrop-filter: blur(12px);
@@ -43,7 +42,7 @@
     color: transparent;
     display: inline-block;
   }
-  /* Project overlays */
+
   .project-card .project-overlay {
     opacity: 0;
     transform: translateY(10px);
@@ -63,7 +62,6 @@
     transition: transform 0.3s ease-in-out;
   }
 
-  /* Animations */
   .animate-spin-slow {
     animation: spin 12s linear infinite;
   }

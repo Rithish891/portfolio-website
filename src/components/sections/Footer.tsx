@@ -50,7 +50,6 @@ export default function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            {" "}
             <p className="text-muted-foreground">
               &copy; 2025 Rithish Jakkireddy. All rights reserved.
             </p>

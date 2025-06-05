@@ -4,7 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Hide default cursor on desktop devices */
 @media (min-width: 1024px) {
   html,
   body,
@@ -122,8 +121,6 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-/* Custom Scrollbar */
-/* For Webkit browsers (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -144,13 +141,11 @@
   background: var(--ring);
 }
 
-/* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--primary) var(--muted);
 }
 
-/* Dark mode adjustments */
 .dark ::-webkit-scrollbar-track {
   background: var(--secondary);
 }

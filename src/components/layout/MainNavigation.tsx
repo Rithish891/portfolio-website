@@ -33,7 +33,7 @@ export function MainNavigation() {
         >
           _.RJ
         </Link>
-        {/* Desktop Navigation */}
+
         <div className="hidden md:block">
           <NavigationMenu viewport={false}>
             <NavigationMenuList className="space-x-6">
@@ -62,7 +62,6 @@ export function MainNavigation() {
           </NavigationMenu>
         </div>
         <div className="flex items-center space-x-4">
-          {/* Theme Toggle - Desktop */}
           <Button
             variant="ghost"
             size="icon"
@@ -74,7 +73,6 @@ export function MainNavigation() {
             <span className="sr-only">Toggle theme</span>
           </Button>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
@@ -87,7 +85,6 @@ export function MainNavigation() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b shadow-lg animate-in slide-in-from-top">
           <div className="container mx-auto p-4 flex flex-col space-y-4">

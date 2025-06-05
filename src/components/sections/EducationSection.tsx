@@ -37,7 +37,6 @@ export default function EducationSection() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-start mb-4">
-              {" "}
               <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-primary-foreground mr-4">
                 <FaGraduationCap className="h-8 w-8" />
               </div>

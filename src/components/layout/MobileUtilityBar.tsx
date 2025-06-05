@@ -32,7 +32,6 @@ export default function MobileUtilityBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Find which section is currently in view
       const sections = navigationItems.map(item =>
         document.getElementById(item.id)
       );
@@ -55,9 +54,7 @@ export default function MobileUtilityBar() {
 
   return (
     <>
-      {/* Mobile Utility Menu */}
       <div className="fixed bottom-6 left-0 right-0 flex justify-center z-40 md:hidden">
-        {" "}
         <button
           onClick={() => setShowMenu(!showMenu)}
           className="bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/80 transition-colors"
@@ -94,7 +91,6 @@ export default function MobileUtilityBar() {
                       : "hover:bg-accent text-accent-foreground"
                   }`}
                 >
-                  {" "}
                   <div className="text-xl mb-1">{item.icon}</div>
                   <span className="text-xs font-medium">{item.label}</span>
                 </Link>

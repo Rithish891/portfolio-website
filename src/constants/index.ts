@@ -35,8 +35,8 @@ export const ANIMATION_CONFIG = {
 };
 
 export const VIEWPORT_BREAKPOINTS = {
-  MOBILE: 640, // Small screens, mobile
-  TABLET: 768, // Tablet-sized screens
-  LAPTOP: 1024, // Laptop-sized screens
-  DESKTOP: 1280, // Desktop screens
+  MOBILE: 640,
+  TABLET: 768,
+  LAPTOP: 1024,
+  DESKTOP: 1280,
 };

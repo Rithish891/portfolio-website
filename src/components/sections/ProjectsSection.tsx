@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkZGRkIi8+PC9zdmc+"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />{" "}
+          />
           <div className="project-overlay absolute inset-0 bg-primary/20 backdrop-blur-sm flex flex-col justify-center items-center opacity-0 transition-all duration-300 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
             <h3 className="text-xl font-heading font-bold text-primary-foreground mb-2">
               {title}
@@ -64,12 +64,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
               ))}
             </div>
           </div>
-        </div>{" "}
+        </div>
         <div className="p-6 bg-card text-card-foreground">
           <h3 className="text-xl font-bold mb-2">{title}</h3>
           <p className="text-muted-foreground mb-4">{longDescription}</p>
           <div className="flex justify-between items-center">
-            {" "}
             {demoLink && (
               <Link
                 href={demoLink}
@@ -79,7 +78,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 <FaExternalLinkAlt className="h-4 w-4 inline mr-2" />
                 {demoLink.includes("youtube") ? "Demo" : "Visit site"}
               </Link>
-            )}{" "}
+            )}
             {codeLink && (
               <Link
                 href={codeLink}

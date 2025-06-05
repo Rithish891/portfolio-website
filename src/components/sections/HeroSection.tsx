@@ -8,7 +8,6 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { VscCode } from "react-icons/vsc";
 
-// Social Icon component for rendering different social media icons with React Icons
 function SocialIcon({ type }: { type: string }) {
   switch (type) {
     case "github":
@@ -48,7 +47,6 @@ export default function HeroSection() {
     }>
   >([]);
   const heroRef = useRef<HTMLElement>(null);
-  // Social media links
   const socialLinks = [
     { name: "GitHub", icon: "github", url: "https://github.com/Rithish891" },
     {
@@ -74,7 +72,6 @@ export default function HeroSection() {
     "Someone who turns ideas into websites",
   ];
 
-  // Generate particles on client-side only
   useEffect(() => {
     const primaryParticles = [...Array(10)].map((_, i) => ({
       top: `${10 + i * 8}%`,
@@ -97,7 +94,7 @@ export default function HeroSection() {
     setParticles(primaryParticles);
     setRingParticles(secondaryParticles);
   }, []);
-  // Mouse parallax effect
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (heroRef.current) {
@@ -114,7 +111,6 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Text typing effect
   useEffect(() => {
     const ticker = setTimeout(() => {
       const i = loopNum % textArray.length;
@@ -148,15 +144,14 @@ export default function HeroSection() {
 
     return () => clearTimeout(ticker);
   }, [loopNum, isDeleting, typingSpeed, textArray]);
+
   return (
     <section
       id="home"
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Interactive background with floating elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Animated particles/dots grid */}
         <div className="absolute inset-0 opacity-30">
           <div className="relative w-full h-full">
             {particles.map((particle, i) => (
@@ -186,7 +181,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Main glowing orbs with parallax effect */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-48 h-48 rounded-full bg-gradient-to-br from-primary/30 via-primary/20 to-transparent blur-3xl"
           style={{
@@ -239,20 +233,16 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Grid overlay effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.15]"></div>
 
-      {/* Main content */}
       <div className="container mx-auto px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-evenly">
-          {/* Text section */}
           <motion.div
             className="lg:w-1/2 mb-16 lg:mb-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Greeting badge */}
             <motion.div
               className="inline-block mb-6 px-4 py-2 rounded-full bg-card border border-border text-sm font-medium opacity-80"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -307,7 +297,6 @@ export default function HeroSection() {
               interaction.
             </motion.p>
 
-            {/* Action buttons with animated hover states */}
             <motion.div
               className="flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
@@ -328,7 +317,6 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Social links */}
             <motion.div
               className="flex items-center gap-4 mt-8"
               initial={{ opacity: 0 }}
@@ -337,7 +325,6 @@ export default function HeroSection() {
             >
               <span className="text-sm text-muted-foreground">Find me on</span>
               <div className="flex gap-3">
-                {" "}
                 {socialLinks.map((link, i) => (
                   <motion.a
                     key={link.name}
@@ -358,7 +345,6 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Profile image section */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 20 }}
@@ -366,10 +352,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative w-64 h-64 md:w-[25rem] md:h-[25rem] mx-auto">
-              {/* Enhanced background decorative elements */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 via-primary/20 to-transparent -z-10 blur-md"></div>
               <div className="absolute inset-0 rotate-45 rounded-full bg-gradient-to-tr from-transparent via-ring/20 to-ring/30 -z-10 blur-md"></div>
-              {/* Enhanced photo container with depth */}
               <div className="p-3 backdrop-blur-md rounded-full">
                 <div className="rounded-full bg-gradient-to-br from-primary/90 via-accent to-ring p-[3px] shadow-lg shadow-primary/20 overflow-hidden">
                   <div className="rounded-full p-1 bg-background/80 backdrop-filter backdrop-blur-sm overflow-hidden">
@@ -384,7 +368,6 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
-              {/* Redesigned experience badge */}
               <div className="absolute -bottom-4 -right-4 transform hover:scale-110 hover:rotate-3 transition-all duration-300">
                 <div className="relative flex items-center justify-center bg-gradient-to-r from-primary via-accent to-ring p-[2px] rounded-2xl shadow-xl">
                   <div className="bg-background/90 backdrop-blur-md px-4 py-2.5 rounded-2xl flex items-center space-x-2">
@@ -397,7 +380,6 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
-              {/* Developer icon with updated style */}{" "}
               <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center shadow-lg transform hover:rotate-12 transition-transform">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-full"></div>
                 <VscCode className="h-8 w-8 text-primary" />
@@ -407,7 +389,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator with motion */}
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -10 }}
