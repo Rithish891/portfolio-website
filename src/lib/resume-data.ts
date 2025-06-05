@@ -5,49 +5,50 @@ PERSONAL INFORMATION:
 - Name: Rithish Jakkireddy
 - Title: Frontend Developer
 - Email: rithishjakkireddy@gmail.com
-- Phone: +918919862345
-- Location: Hyderabad, India
+- Phone: +91 8919862345
 - LinkedIn: https://www.linkedin.com/in/rithishjakkireddy/
 - GitHub: https://github.com/Rithish891/
-- Portfolio: https://rithishjakkireddy.netlify.app/
+- Portfolio: https://rithishjakkireddy.bio/
 
 PROFESSIONAL SUMMARY:
-Frontend developer with experience in React and TypeScript, focused on creating intuitive, user centric web applications. I deliver clean, maintainable code and continuously enhance the user experience, aiming to add simplicity and value to every interaction
+Frontend Developer with 3 years of experience leveraging React and TypeScript to build sophisticated, user centric web applications. Demonstrated success in designing and implementing micro-frontend architectures that improve scalability and code reusability. Passionate about solving complex frontend challenges and delivering high-quality, performant solutions that add significant value to users and development teams.
 
 WORK EXPERIENCE:
-Capgemini Engineering - Front End Developer (July 2022 - Present)
-- Developed and maintained a micro frontend architecture using React, TypeScript, and Vite, ensuring modularity and scalability to build responsive and user-friendly interfaces.
-- Developed a Common Microfrontend that provides shared components, utilities, and services across multiple micro frontends, promoting code reuse and consistency throughout the application ecosystem.
-- Implemented robust API integration using RTK Query for efficient data fetching and state management across various services.
-- Utilized Redux Toolkit for efficient state management, ensuring a predictable state container.
-- Developed responsive and accessible UI components using Material-UI, ensuring a seamless user experience across different devices and screen sizes.
-- Integrated internationalization (i18n) support across the application, enabling multi-language support and localization.
-- Managed multiple environment configurations for development, staging, and production using .env files, ensuring secure and efficient environment-specific settings.
-- Integrated various third-party services to enhance application functionality, including Firebase for notifications, Keycloak for secure user authentication and SSO, Power BI and ApexCharts for advanced visualization, and Zoom API for seamless video conferencing capabilities.
-- Worked closely with cross-functional teams on front-end component integration to back-end infrastructure, ensuring smooth functionality and high performance.
-- Ensured the best possible level of code quality by strict code reviews, continuous integration, and best practices; actively contributed to agile development processes in order to execute a project and meet timelines effectively.
+Front End Developer, Capgemini Engineering | Innovation Team, ER&D (July 2022 - Present)
+- Architected and maintained a microfrontend system (React, TypeScript, Vite), enabling independent deployments that accelerated feature releases by approximately 20%. This included developing a Common Microfrontend with reusable UI components and services, which reduced shared code by about 35-40% across 22 MFEs, further boosting new feature development velocity.
+- Optimized API interactions and data management by implementing RTK Query, resulting in measurably improved data fetch times and simplified complex data tasks.
+- Utilized Redux Toolkit for robust management of complex global UI state (e.g., user preferences, multi-step forms), enhancing application stability and contributing to an approximate 10% reduction in state-related bugs reported post-release.
+- Built responsive and accessible UI components with Material-UI, meeting WCAG 2.1 AA standards and ensuring a positive experience for 500-1000+ daily active users.
+- Added multi-language support (i18n) to the application, allowing it to work in 3 languages and helping launch it in new global markets.
+- Managed environment settings (.env files) for development, testing, and live stages, improving deployment safety and reducing configuration errors.
+- Connected key third-party services to add features: Firebase (notifications), Keycloak (secure logins), Power BI & Apex-Charts (data visuals), and Zoom API (video calls).
+- Championed code quality enhancements via rigorous code reviews and contributions to CI/CD pipeline setup, which measurably improved project delivery timelines and contributed to an estimated 10-15% increase in overall team development velocity.
 
 EDUCATION:
-B.Tech in Electronics and Communication Engineering - Shiv Nadar University (May 2022)
-- GPA: 7.35 / 10
+B.Tech in Electronics and Communication Engineering - Shiv Nadar University | Greater Nodida, India (May 2022)
 
 TECHNICAL SKILLS:
-- Web Development: React, Redux, React Native, Vite, Webpack, Material UI, PWA, Vitest, HTML, CSS
-- Programming Languages: TypeScript, JavaScript, Python
-- Platforms & Tools: Keycloak, Firebase, Power BI, D3.js, Docker, Git, Postman, JIRA, VS Code, Figma
-- APIs & Databases: REST APIs, MySQL
-- Soft Skills: Time Management, Problem-solving
+- Languages: TypeScript, JavaScript (ES6+), Python
+- Frontend: React, Redux (Toolkit, RTK Query), Next.js, PWA, Vite, Webpack, Responsive, A11y
+- Styling & UI: Material-UI, Tailwind CSS, HTML5, CSS3
+- Backend & AI: Node.js, Express.js, GenAI, LLMs
+- Databases & APIs: SQL, Firebase, FHIR, RESTful APIs
+- Tools & Platforms: Git, Docker, Keycloak, JIRA, Figma, Power BI
 
 PROJECTS:
+AI Powered Portfolio Website
+- Description: Developed a modern, responsive personal portfolio using Next.js (SSR/SSG) and Tailwind CSS, featuring an interactive Generative AI chatbot to provide detailed professional background information. Engineered the chatbot by integrating the Google Gemini API via Next.js API routes, utilizing in-context learning by providing comprehensive resume data to enable accurate and relevant responses to user queries about my skills and experience.
+- Technologies: Next.js, React, Tailwind CSS, Google Gemini API, GenAI
+
 Interactive Kanban Board Application
-- Description: Developed an interactive Kanban board using React JS and pure CSS, integrating with a REST API to display and manage tickets. Implemented dynamic grouping by status, user, or priority, with sorting options by priority and title. Ensured simple, responsive design user-friendly UI, preserving user preferences across page reloads
-- Technologies: React, TypeScript, Redux Toolkit, Pure CSS
+- Description: Designed and built an interactive Kanban board using React, TypeScript, and Redux Toolkit for dynamic task management, seamlessly connecting to a REST API for data operations. Implemented key features including custom task grouping (by status, user, priority), advanced sorting, full responsiveness, and utilized LocalStorage for persisting user interface settings.
+- Technologies: React.js, Typescript, Redux Toolkit, Pure CSS, REST API
 - GitHub: https://github.com/Rithish891/kanban-board
 - Live Demo: https://rithish-kanban-board.netlify.app/
 
 Course Management Dashboard
-- Description: Developed a dynamic and responsive course management dashboard using React, designed to provide an intuitive user interface for students to view course details and for faculty members to update course content seamlessly. The application efficiently handles HTTP requests using Axios to interact with the backend, enabling real-time fetching and updating of course information.
-- Technologies: React, TypeScript, Material UI, Axios
+- Description: Developed a user-friendly Course Management Dashboard with React, TypeScript, and Material-UI, featuring distinct, intuitive views for students and teachers. Effectively managed all backend communication for fetching and updating course data, including student grades and course materials, using Axios for API requests.
+- Technologies: React.js, Typescript, Material UI, Axios
 
 ACHIEVEMENTS:
 - Best Employee Award - WOW Award (Issued by Capgemini Engineering · Dec 2023)
