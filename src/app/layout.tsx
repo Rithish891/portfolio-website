@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LoadingProvider } from "@/contexts/LoadingContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
-        {/* No external icon libraries needed - using React Icons */}
         <link rel="shortcut icon" href="/assets/favicon.ico" />
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
       </head>
@@ -45,7 +45,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LoadingProvider>{children}</LoadingProvider>
         </ThemeProvider>
       </body>
     </html>

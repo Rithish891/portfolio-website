@@ -13,29 +13,27 @@ import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/sections/Footer";
 import Script from "next/script";
 import ChatBot from "@/components/ChatBot";
+import ContentWrapper from "@/components/ContentWrapper";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Preloader />
-      <CustomCursor />
-      <ChatBot />
-      <ResumeDownloadButton />
-      <MainNavigation />
-      <MobileUtilityBar />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
-
-      <Script
-        src="https://kit.fontawesome.com/3fe7e52fc2.js"
-        crossOrigin="anonymous"
-      />
+      <ContentWrapper>
+        <CustomCursor />
+        <ChatBot />
+        <ResumeDownloadButton />
+        <MainNavigation />
+        <MobileUtilityBar />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <EducationSection />
+        <ContactSection />
+        <Footer />
+      </ContentWrapper>
     </main>
   );
 }

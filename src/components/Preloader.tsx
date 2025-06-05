@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLoading } from "@/contexts/LoadingContext";
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(true);
+  const { isLoading, setIsLoading } = useLoading();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
     const interval = setInterval(() => {
       setProgress(prev => {
         const newProgress = prev + Math.random() * 15;
@@ -16,20 +16,18 @@ export default function Preloader() {
       });
     }, 150);
 
-    // Complete loading
     const timer = setTimeout(() => {
       clearInterval(interval);
       setProgress(100);
-      setTimeout(() => setLoading(false), 500);
+      setTimeout(() => setIsLoading(false), 500);
     }, 2000);
 
     return () => {
       clearTimeout(timer);
       clearInterval(interval);
     };
-  }, []);
+  }, [setIsLoading]);
 
-  // Text animation
   const text = "RITHISH JAKKIREDDY";
   const letterVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -42,7 +40,7 @@ export default function Preloader() {
       },
     }),
   };
-  // Pre-generate static values to prevent hydration mismatch
+
   const staticBubbles = React.useMemo(() => {
     return [...Array(20)].map(() => ({
       width: 50,
@@ -57,11 +55,9 @@ export default function Preloader() {
     }));
   }, []);
 
-  // Update bubble positions and animations on client-side only
   const [bubbles, setBubbles] = React.useState(staticBubbles);
 
   useEffect(() => {
-    // Update bubble properties only on client-side
     setBubbles(
       [...Array(20)].map(() => ({
         width: Math.random() * 100 + 20,
@@ -79,14 +75,13 @@ export default function Preloader() {
 
   return (
     <AnimatePresence>
-      {loading && (
+      {isLoading && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             {bubbles.map((bubble, i) => (
               <motion.div
@@ -114,14 +109,12 @@ export default function Preloader() {
             ))}
           </div>
 
-          {/* Main Content */}
           <motion.div
             className="relative z-10 flex flex-col items-center justify-center"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7 }}
           >
-            {/* Logo Animation */}
             <div className="w-28 h-28 relative mb-6">
               <svg
                 className="text-primary absolute inset-0 w-full h-full"
@@ -140,8 +133,7 @@ export default function Preloader() {
                     rotate: { duration: 1.8, ease: "easeInOut" },
                   }}
                 />
-              </svg>{" "}
-              {/* Inner Content */}
+              </svg>
               <motion.div
                 className="absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -154,7 +146,6 @@ export default function Preloader() {
               </motion.div>
             </div>
 
-            {/* Animated Text */}
             <div className="overflow-hidden">
               <motion.div
                 className="flex justify-center"
@@ -177,7 +168,6 @@ export default function Preloader() {
               </motion.div>
             </div>
 
-            {/* Progress Bar */}
             <motion.div
               className="mt-8 w-60 h-1 bg-secondary/30 rounded overflow-hidden relative"
               initial={{ width: 0 }}
