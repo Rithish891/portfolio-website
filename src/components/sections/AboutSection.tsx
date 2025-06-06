@@ -60,7 +60,6 @@ export default function AboutSection() {
           </motion.div>
 
           <motion.div className="md:w-2/3 md:pl-12" variants={fadeIn}>
-            <h3 className="text-2xl font-bold mb-6">Who I Am</h3>
             <p className="mb-6 opacity-90">
               I&rsquo;m a frontend developer with over 3 years of experience 👨‍💻
               crafting modern, responsive web applications. I specialize in

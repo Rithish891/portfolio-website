@@ -130,10 +130,12 @@ export default function HeroSection() {
       setDisplayText(currentText.current);
 
       if (!isDeleting && currentText.current === textArray[i]) {
-        setIsDeleting(true);
-        setTypingSpeed(100);
         setTimeout(() => {
-          setTypingSpeed(25);
+          setIsDeleting(true);
+          setTypingSpeed(100);
+          setTimeout(() => {
+            setTypingSpeed(25);
+          }, 500);
         }, 500);
       } else if (isDeleting && currentText.current === "") {
         setIsDeleting(false);
@@ -275,26 +277,19 @@ export default function HeroSection() {
               </motion.div>
             </h1>
 
-            <motion.h2
-              className="text-2xl md:text-3xl font-semibold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              Frontend Developer
-            </motion.h2>
-
             <motion.p
-              className="text-lg mb-8 max-w-xl text-muted-foreground"
+              className="text-mb mb-8 max-w-xl text-muted-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              Frontend developer with experience in React and TypeScript,
-              focused on creating intuitive, user-centric web applications. I
-              deliver clean, maintainable code and continuously enhance the user
-              experience, aiming to add simplicity and value to every
-              interaction.
+              Frontend Developer with 3 years of experience leveraging React and
+              TypeScript to build sophisticated, user centric web applications.
+              Demonstrated success in designing and implementing micro-frontend
+              architectures that improve scalability and code reusability.
+              Passionate about solving complex frontend challenges and
+              delivering high-quality, performant solutions that add significant
+              value to users and development teams.
             </motion.p>
 
             <motion.div

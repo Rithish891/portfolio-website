@@ -17,7 +17,6 @@ import {
   SiCss3,
   SiPython,
   SiFirebase,
-  SiMysql,
   SiD3Dotjs,
   SiOpenai,
   SiDocker,
@@ -25,14 +24,16 @@ import {
   SiJira,
   SiFigma,
   SiPostman,
+  SiPostgresql,
 } from "react-icons/si";
-import { TbBrandPowershell, TbShieldLock } from "react-icons/tb";
+import { TbShieldLock } from "react-icons/tb";
 import {
   MdOutlineDevices,
   MdOutlinePalette,
   MdSmartToy,
-  MdAccountTree,
   MdCompareArrows,
+  MdOutlineHealthAndSafety,
+  MdOutlineAnalytics,
 } from "react-icons/md";
 
 interface SkillItemProps {
@@ -57,15 +58,13 @@ export default function SkillsSection() {
   const technicalSkills: SkillItemProps[] = [
     { icon: <SiReact className="text-blue-500" />, name: "React" },
     { icon: <SiRedux className="text-purple-600" />, name: "Redux" },
-    { icon: <SiReact className="text-cyan-500" />, name: "React Native" },
     { icon: <SiTypescript className="text-blue-400" />, name: "TypeScript" },
+    { icon: <SiNodedotjs className="text-green-600" />, name: "Node.js" },
+    { icon: <SiNextdotjs className="dark:text-white" />, name: "Next.js" },
     { icon: <SiJavascript className="text-yellow-400" />, name: "JavaScript" },
     { icon: <SiVite className="text-purple-500" />, name: "Vite" },
     { icon: <SiWebpack className="text-blue-600" />, name: "Webpack" },
-    { icon: <SiNodedotjs className="text-green-600" />, name: "Node.js" },
     { icon: <SiExpress className="text-gray-600" />, name: "Express.js" },
-    { icon: <SiNextdotjs className="dark:text-white" />, name: "Next.js" },
-    { icon: <MdOutlineDevices className="text-blue-500" />, name: "PWA" },
     {
       icon: <MdOutlinePalette className="text-pink-500" />,
       name: "Material UI",
@@ -73,14 +72,21 @@ export default function SkillsSection() {
     { icon: <SiTailwindcss className="text-blue-400" />, name: "Tailwind CSS" },
     { icon: <SiHtml5 className="text-red-500" />, name: "HTML" },
     { icon: <SiCss3 className="text-blue-500" />, name: "CSS" },
+    { icon: <MdOutlineDevices className="text-blue-500" />, name: "PWA" },
     { icon: <SiPython className="text-green-600" />, name: "Python" },
     { icon: <SiFirebase className="text-orange-500" />, name: "Firebase" },
-    { icon: <SiMysql className="text-yellow-600" />, name: "SQL" },
-    { icon: <TbBrandPowershell className="text-cyan-600" />, name: "Power BI" },
+    { icon: <SiPostgresql className="text-yellow-600" />, name: "SQL" },
+    {
+      icon: <MdOutlineAnalytics className="text-cyan-600" />,
+      name: "Power BI",
+    },
     { icon: <SiD3Dotjs className="text-purple-500" />, name: "D3.js" },
     { icon: <SiOpenai className="text-pink-400" />, name: "GenAI" },
     { icon: <MdSmartToy className="text-indigo-500" />, name: "LLMs" },
-    { icon: <MdAccountTree className="text-orange-600" />, name: "FHIR" },
+    {
+      icon: <MdOutlineHealthAndSafety className="text-orange-600" />,
+      name: "FHIR",
+    },
     {
       icon: <MdCompareArrows className="text-green-500" />,
       name: "RESTful APIs",

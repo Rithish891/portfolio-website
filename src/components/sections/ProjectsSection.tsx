@@ -116,7 +116,7 @@ export default function ProjectsSection() {
       description:
         "Kanban board to help teams track tasks, prioritize work, and manage workflows efficiently across devices while preserving user preferences.",
       imageSrc: "/assets/Kanban.png",
-      tags: ["React", "TypeScript", "Redux Toolkit"],
+      tags: ["React", "TypeScript", "Redux Toolkit", "Pure CSS", "REST API"],
       demoLink: "https://rithish-kanban-board.netlify.app/",
       codeLink: "https://github.com/Rithish891/kanban-board",
       longDescription:
