@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa6";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { VscCode } from "react-icons/vsc";
 

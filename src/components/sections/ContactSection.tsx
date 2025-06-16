@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa6";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import { FiDownload } from "react-icons/fi";
