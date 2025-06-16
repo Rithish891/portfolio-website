@@ -10,7 +10,7 @@ export default function ResumeDownloadButton() {
       href="https://drive.google.com/file/d/1Yf5Pz1kM7CV1aAcaMyndFSSckmpXjAmN/view?usp=drive_link"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 group"
+      className="fixed bottom-1 left-4 z-50 group"
       title="Rithish's Resume"
     >
       <div className="relative w-24 h-24 flex items-center justify-center">

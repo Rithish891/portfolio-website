@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import { FiDownload } from "react-icons/fi";
@@ -22,14 +22,14 @@ export default function ContactSection() {
       href: "https://www.linkedin.com/in/rithishjakkireddy",
     },
     {
+      name: "Medium",
+      icon: <FaMedium className="text-3xl mb-2" />,
+      href: "https://medium.com/@rithishjakkireddy",
+    },
+    {
       name: "Topmate",
       icon: <HiOutlineIdentification className="text-3xl mb-2" />,
       href: "https://topmate.io/rithishjakkireddy",
-    },
-    {
-      name: "Instagram",
-      icon: <FaInstagram className="text-3xl mb-2" />,
-      href: "https://www.instagram.com/rithish_jakkireddy/",
     },
   ];
 

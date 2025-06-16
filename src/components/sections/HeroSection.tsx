@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { VscCode } from "react-icons/vsc";
 
@@ -16,8 +16,8 @@ function SocialIcon({ type }: { type: string }) {
       return <FaLinkedinIn className="text-lg" />;
     case "topmate":
       return <HiOutlineIdentification className="text-lg" />;
-    case "instagram":
-      return <FaInstagram className="text-lg" />;
+    case "medium":
+      return <FaMedium className="text-lg" />;
     default:
       return null;
   }
@@ -54,15 +54,16 @@ export default function HeroSection() {
       icon: "linkedin",
       url: "https://www.linkedin.com/in/rithishjakkireddy",
     },
+
+    {
+      name: "Medium",
+      icon: "medium",
+      url: "https://medium.com/@rithishjakkireddy",
+    },
     {
       name: "Topmate",
       icon: "topmate",
       url: "https://topmate.io/rithishjakkireddy",
-    },
-    {
-      name: "Instagram",
-      icon: "instagram",
-      url: "https://www.instagram.com/rithish_jakkireddy",
     },
   ];
 

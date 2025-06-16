@@ -25,11 +25,11 @@ import {
   SiFigma,
   SiPostman,
   SiPostgresql,
+  SiPwa,
+  SiMui,
 } from "react-icons/si";
 import { TbShieldLock } from "react-icons/tb";
 import {
-  MdOutlineDevices,
-  MdOutlinePalette,
   MdSmartToy,
   MdCompareArrows,
   MdOutlineHealthAndSafety,
@@ -66,13 +66,13 @@ export default function SkillsSection() {
     { icon: <SiWebpack className="text-blue-600" />, name: "Webpack" },
     { icon: <SiExpress className="text-gray-600" />, name: "Express.js" },
     {
-      icon: <MdOutlinePalette className="text-pink-500" />,
+      icon: <SiMui className="text-blue-600" />,
       name: "Material UI",
     },
     { icon: <SiTailwindcss className="text-blue-400" />, name: "Tailwind CSS" },
     { icon: <SiHtml5 className="text-red-500" />, name: "HTML" },
     { icon: <SiCss3 className="text-blue-500" />, name: "CSS" },
-    { icon: <MdOutlineDevices className="text-blue-500" />, name: "PWA" },
+    { icon: <SiPwa className="text-yellow-400" />, name: "PWA" },
     { icon: <SiPython className="text-green-600" />, name: "Python" },
     { icon: <SiFirebase className="text-orange-500" />, name: "Firebase" },
     { icon: <SiPostgresql className="text-yellow-600" />, name: "SQL" },
